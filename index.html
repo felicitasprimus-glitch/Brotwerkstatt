@@ -854,6 +854,58 @@
   #toolGrid .tool-card .ic svg{ width:26px; height:26px; }
   .nav-btn .ic{ display:inline-flex; align-items:center; justify-content:center; }
   .nav-btn .ic svg{ width:22px; height:22px; }
+
+  /* ===== Startseite: Konzept-Home (Hero-Brot + 2x2-Schnellaktionen) ===== */
+  #view-home .hero h1::after{ display:none; }
+  #view-home .hero::after{ display:none; }
+  .hero-rule{ width:64px; border-top:2.5px solid var(--mauve); border-radius:2px; margin:14px 0 0 2px; position:relative; }
+  .hero-rule::after{ content:""; position:absolute; left:7px; top:5px; width:44px; border-top:2px solid var(--mauve); opacity:.55; }
+  .hero-heart{ font-size:22px; color:var(--mauve); line-height:1; margin:15px 0 0 2px; }
+  .hero-photo{ margin:16px 0 18px; border-radius:24px; height:232px; overflow:hidden; position:relative;
+    box-shadow:var(--shadow-2), inset 0 0 0 1px rgba(168,133,79,.16); }
+  .hero-photo .fav{ position:absolute; top:12px; right:14px; width:32px; height:32px; border-radius:50%; z-index:2;
+    display:grid; place-items:center; background:rgba(255,255,255,.72); color:var(--mauve); box-shadow:var(--shadow-1); }
+  .hero-photo .tag{ position:absolute; left:12px; bottom:10px; z-index:2; font-size:10.5px; font-weight:600;
+    color:#8a6a4a; background:rgba(255,255,255,.6); padding:4px 10px; border-radius:20px; }
+  .hero-photo .boule{ position:absolute; inset:0; width:100%; height:100%; }
+
+  .qa-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .qa{ position:relative; text-align:left; border-radius:24px; padding:17px 17px 19px; min-height:152px;
+    display:flex; flex-direction:column; box-shadow:var(--shadow-1); overflow:hidden;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease); }
+  .qa:hover, .qa:active{ transform:translateY(-2px); box-shadow:var(--shadow-3); }
+  .qa-cream{ background:#F4E8D4; border:1px solid var(--line); }
+  .qa-primary{ background:linear-gradient(155deg,#A85E73 0%,#854C5F 100%); color:#FBEBE6; }
+  .qa-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .qa-title{ font-family:'Playfair Display',Georgia,serif; font-weight:600; font-size:19px; }
+  .qa-cream .qa-title{ color:var(--ink); }
+  .qa-arrow{ font-size:17px; opacity:.85; }
+  .qa-sub{ font-size:12.5px; line-height:1.35; margin-top:5px; max-width:18ch; }
+  .qa-cream .qa-sub{ color:var(--ink-soft); }
+  .qa-primary .qa-sub{ color:#F1D6D3; }
+  .qa-ic{ margin-top:auto; align-self:flex-end; line-height:0; }
+  .qa-ic svg{ width:42px; height:42px; }
+  .qa-cream .qa-ic{ color:var(--mauve); opacity:.5; }
+  .qa-primary .qa-ic{ color:#FBEBE6; opacity:.55; }
+
+  .soon-note{ display:none; align-items:center; gap:10px; margin-top:12px; padding:12px 14px;
+    background:var(--mauve-mist); border-radius:16px; color:var(--mauve-deep); font-size:12.5px; line-height:1.4; }
+
+  .focus-head{ font-weight:700; font-size:15px; color:var(--ink); margin:24px 0 12px; }
+  .focus-card{ display:flex; gap:13px; align-items:flex-start; padding:16px; background:var(--cream-card);
+    border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow-1); }
+  .focus-card .fic{ width:42px; height:42px; border-radius:13px; flex:none; display:grid; place-items:center;
+    background:var(--mauve-mist); color:var(--mauve); }
+  .focus-card .ftxt b{ font-size:11px; font-weight:700; color:var(--mauve); text-transform:uppercase; letter-spacing:.1em; }
+  .focus-card .ftxt p{ font-size:13px; color:var(--ink-soft); line-height:1.45; margin-top:4px; }
+
+  .more-row{ display:flex; gap:10px; margin-top:18px; }
+  .more-card{ flex:1; display:flex; align-items:center; gap:10px; padding:13px 14px; border-radius:16px;
+    background:var(--cream-card); border:1px solid var(--line); box-shadow:var(--shadow-1); text-align:left;
+    font-family:'Playfair Display',Georgia,serif; font-weight:600; font-size:15px; color:var(--ink); }
+  .more-card .mic{ width:30px; height:30px; border-radius:10px; flex:none; display:grid; place-items:center;
+    background:var(--mauve-mist); color:var(--mauve); }
+  .more-card .mic svg{ width:18px; height:18px; }
   </style>
 </head>
 <body>
@@ -948,71 +1000,60 @@
     <main id="main">
 
       <!-- ===== HOME / HUB ===== -->
-      <section class="view active" id="view-home" aria-label="Uebersicht">
+      <section class="view active" id="view-home" aria-label="Übersicht">
         <div class="hero">
-          <div class="eyebrow" id="dayGreeting">Heute · Backtag</div>
+          <div class="eyebrow" id="dayGreeting">Hallo 👋</div>
           <h1>Was backen wir <em>heute?</em></h1>
-          <p>Fünf Werkzeuge für dein Sauerteig-Handwerk &mdash; vom ersten Wasserglas bis zur knusprigen Kruste.</p>
-          <div class="greeting-meta">
-            <span class="dot"></span>
-            <span id="userEmailHint">Eingeloggt</span>
+          <div class="hero-rule"></div>
+          <div class="hero-heart">&#9829;</div>
+          <span id="userEmailHint" style="display:none">Eingeloggt</span>
+          <div class="hero-photo">
+            <span class="fav">&#9829;</span>
+            <span class="tag">Dein Brotfoto</span>
+            <svg class="boule" viewBox="0 0 340 232" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="hbCrust" cx="46%" cy="40%" r="64%"><stop offset="0%" stop-color="#EBC998"/><stop offset="55%" stop-color="#CE9656"/><stop offset="100%" stop-color="#955D2F"/></radialGradient><linearGradient id="hbLinen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0E3CB"/><stop offset="100%" stop-color="#E2D1AE"/></linearGradient></defs><rect width="340" height="232" fill="url(#hbLinen)"/><path d="M0 190 Q90 162 180 186 T340 180 V232 H0 Z" fill="#DAC7A0" opacity=".7"/><path d="M0 208 Q120 184 240 204 T340 200 V232 H0 Z" fill="#D1BD93" opacity=".7"/><ellipse cx="188" cy="150" rx="120" ry="44" fill="#7c5530" opacity=".18"/><ellipse cx="188" cy="120" rx="114" ry="86" fill="url(#hbCrust)"/><ellipse cx="188" cy="116" rx="114" ry="86" fill="#000" opacity=".05"/><ellipse cx="160" cy="92" rx="62" ry="34" fill="#F4E7CD" opacity=".28"/><path d="M120 96 q72 -34 138 6" stroke="#7a4a23" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/><path d="M152 68 q9 52 -2 100" stroke="#7a4a23" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/><path d="M152 68 q-17 6 -25 21" stroke="#6a3f1d" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/><path d="M202 78 q14 42 30 72" stroke="#7a4a23" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".45"/></svg>
           </div>
         </div>
 
-        <div class="section-head">
-          <div class="title">Deine Werkzeuge</div>
-          <div class="meta">5 Tools</div>
-        </div>
-
-        <div class="tool-grid" id="toolGrid">
-          <button class="tool-card" data-tool="brotbackplaner" type="button">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4M8 13h5"/></svg></span>
-            <div class="body">
-              <h3>Brotbackplaner</h3>
-              <p>Backplan rückwärts aus deiner Wunsch-Backzeit &mdash; mit Autolyse und Fermentolyse.</p>
-              <span class="pill">Plan erstellen</span>
-            </div>
+        <div class="qa-grid">
+          <button class="qa qa-primary" data-tool="brotbackplaner" type="button">
+            <div class="qa-top"><span class="qa-title">Teig planen</span><span class="qa-arrow">&raquo;</span></div>
+            <p class="qa-sub">Starte einen neuen Backplan</p>
+            <span class="qa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/><circle cx="9" cy="14" r="1"/><circle cx="14" cy="14" r="1"/></svg></span>
           </button>
-          <button class="tool-card" data-tool="hydration" type="button">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"/></svg></span>
-            <div class="body">
-              <h3>Hydration</h3>
-              <p>Wieviel Wasser für dein Mehl &mdash; einfach erklärt, auch für Anfängerinnen.</p>
-              <span class="pill">Rechnen</span>
-            </div>
+          <button class="qa qa-cream" id="qaRezepte" type="button">
+            <div class="qa-top"><span class="qa-title">Meine Brote</span><span class="qa-arrow">&raquo;</span></div>
+            <p class="qa-sub">Deine Rezepte &amp; Backverläufe</p>
+            <span class="qa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 14c0-4 3.6-7 8-7s8 3 8 7c0 1.4-1.1 2-2.4 2H6.4C5.1 16 4 15.4 4 14Z"/><path d="M9 11.4v3.2M13 11.4v3.2" opacity=".5"/></svg></span>
           </button>
-          <button class="tool-card" data-tool="inclusions" type="button">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.2"/><circle cx="16" cy="7.5" r="2.2"/><circle cx="12" cy="15" r="2.2"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></span>
-            <div class="body">
-              <h3>Inclusions</h3>
-              <p>Nüsse, Saaten, Trockenfrüchte richtig portionieren &mdash; ohne den Teig zu stören.</p>
-              <span class="pill">Planen</span>
-            </div>
+          <button class="qa qa-cream" data-tool="stueckgare" type="button">
+            <div class="qa-top"><span class="qa-title">Gare prüfen</span><span class="qa-arrow">&rsaquo;</span></div>
+            <p class="qa-sub">Ist mein Teig backbereit?</p>
+            <span class="qa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16c0 4.4-3.6 7-8 7s-8-2.6-8-7Z"/><path d="M2.5 12h19"/><path d="M10 5c-1 1-1 2 0 3M14 5c-1 1-1 2 0 3" opacity=".6"/></svg></span>
           </button>
-          <button class="tool-card" data-tool="stueckgare" type="button">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>
-            <div class="body">
-              <h3>Stückgare</h3>
-              <p>Wie lange noch &mdash; Raumtemperatur oder Kühlschrank? Mit Fingertest-Guide.</p>
-              <span class="pill">Timing</span>
-            </div>
-          </button>
-          <button class="tool-card" data-tool="fehlerfinder" type="button">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span>
-            <div class="body">
-              <h3>Fehlerfinder</h3>
-              <p>Brot nicht gelungen? Finde die Ursache &mdash; und gleich die Lösung dazu.</p>
-              <span class="pill">Analysieren</span>
-            </div>
+          <button class="qa qa-cream" data-tool="fehlerfinder" type="button">
+            <div class="qa-top"><span class="qa-title">Brot retten</span><span class="qa-arrow">&rsaquo;</span></div>
+            <p class="qa-sub">Hilfe, wenn&rsquo;s mal nicht läuft</p>
+            <span class="qa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M5.6 5.6l3.4 3.4M15 15l3.4 3.4M18.4 5.6l-3.4 3.4M9 15l-3.4 3.4" stroke-linecap="round"/></svg></span>
           </button>
         </div>
 
-        <div class="tip-strip">
-          <div class="em">🌾</div>
-          <div class="txt">
-            <div class="eyebrow">Tipp des Tages</div>
+        <div id="soonNote" class="soon-note">
+          <span>&#10024;</span>
+          <span>Deine Rezept-Sammlung &bdquo;Meine Brote&ldquo; kommt bald. Bis dahin planst du alles im Brotbackplaner.</span>
+        </div>
+
+        <div class="focus-head">Heute im Fokus</div>
+        <div class="focus-card">
+          <div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 9c-2-1-3-3-2-5 2 1 3 3 2 5ZM12 9c2-1 3-3 2-5-2 1-3 3-2 5ZM12 14c-2-1-3-3-2-5 2 1 3 3 2 5ZM12 14c2-1 3-3 2-5-2 1-3 3-2 5Z"/></svg></div>
+          <div class="ftxt">
+            <b>Tipp des Tages</b>
             <p id="tipOfDay">Ein guter Teig fühlt sich an wie ein weiches Ohrläppchen. Dehne ihn vorsichtig &mdash; reißt er, braucht er mehr Ruhe.</p>
           </div>
+        </div>
+
+        <div class="more-row">
+          <button class="more-card" data-tool="hydration" type="button"><span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"/></svg></span>Hydration</button>
+          <button class="more-card" data-tool="inclusions" type="button"><span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.2"/><circle cx="16" cy="7.5" r="2.2"/><circle cx="12" cy="15" r="2.2"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></span>Inclusions</button>
         </div>
 
         <div class="home-footer">
@@ -1029,6 +1070,10 @@
         </button>
 
         <div style="height:24px;"></div>
+        <script>
+          (function(){var b=document.getElementById('qaRezepte'),n=document.getElementById('soonNote');
+          if(b&&n)b.addEventListener('click',function(){n.style.display='flex';});})();
+        </script>
       </section>
 
       <!-- ===== TOOL VIEWS (iframes) ===== -->
@@ -4640,7 +4685,7 @@ function buildCard(key, content, isWarn) {
       else if (h < 18) g = "Heute Nachmittag";
       else if (h < 22) g = "Heute Abend";
       else g = "Heute Nacht";
-      document.getElementById('dayGreeting').innerHTML = g + " &middot; Backtag";
+      document.getElementById('dayGreeting').innerHTML = g + " 👋";
     }
     setDayGreeting();
 
