@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -710,6 +710,139 @@
       .tool-card .ic { width: 48px; height: 48px; font-size: 22px; }
       .tool-card .body h3 { font-size: 19px; }
     }
+  </style>
+
+  <style id="bw-theme-concept">
+  /* ===========================================================
+     THEME: Premium-Editorial-Konzept (Creme / Bordeaux)
+     Reine Optik-Schicht ueber der bestehenden Shell.
+     Mechanik (Login, Service-Worker, Rechner) bleibt unberuehrt.
+     Zum Zuruecksetzen einfach diesen kompletten <style>-Block loeschen.
+     =========================================================== */
+  :root{
+    --cream:#F4EDE2; --cream-warm:#EBE0CF; --cream-card:#FBF7F0; --cream-deep:#EFE4D2;
+    --ink:#2C2420; --ink-soft:#7A6D60; --ink-mute:#A1937F;
+    --mauve:#9E3E54; --mauve-deep:#832F44; --mauve-soft:#C98494; --mauve-mist:#F6E9EA;
+    --line:#E7DBC9; --line-soft:#EFE6D7; --gold:#C2A079;
+    --shadow-1:0 1px 2px rgba(74,46,30,.05), 0 1px 3px rgba(74,46,30,.07);
+    --shadow-2:0 2px 6px rgba(74,46,30,.05), 0 14px 34px -18px rgba(74,46,30,.30);
+    --shadow-3:0 8px 22px -12px rgba(74,46,30,.12), 0 30px 70px -36px rgba(74,46,30,.42);
+    --r-md:18px; --r-lg:24px; --r-xl:30px;
+  }
+  /* warmes Papier mit sanftem Lichtverlauf */
+  body{
+    background:
+      radial-gradient(900px 520px at 12% -6%, #FBF4E8 0%, rgba(251,244,232,0) 55%),
+      radial-gradient(760px 460px at 96% 4%, #F7E9EA 0%, rgba(247,233,234,0) 52%),
+      var(--cream) !important;
+  }
+  /* Marken-Kopf */
+  .brand-mark .word b{ font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:600; color:var(--mauve-deep); letter-spacing:.3px; }
+  .brand-mark .word small{ letter-spacing:.32em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; font-size:10px; }
+
+  /* Eyebrows in Markenfarbe */
+  .eyebrow{ color:var(--mauve); }
+
+  /* Hero */
+  #view-home .hero h1{ font-size:clamp(38px,9.5vw,56px); }
+  #view-home .hero h1::after{
+    content:""; display:block; width:54px; height:3px; border-radius:3px;
+    background:var(--mauve); opacity:.8; margin:16px 0 0 2px;
+  }
+  #view-home .hero::after{
+    content:"Alles im Plan \2665"; position:absolute; top:2px; right:0;
+    font-family:'Caveat',cursive; font-size:23px; color:var(--mauve);
+    transform:rotate(-4deg); opacity:.92; pointer-events:none;
+  }
+  @media (max-width:380px){ #view-home .hero::after{ display:none; } }
+
+  /* Abschnittstitel */
+  .section-head .title{ font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:21px; }
+
+  /* Tool-Karten — erste Karte als Bordeaux-Held */
+  #toolGrid .tool-card .ic{
+    background:var(--mauve-mist); border-color:transparent; color:var(--mauve);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  #toolGrid .tool-card:first-child{
+    background:linear-gradient(155deg,#A6435A 0%,#832F44 100%);
+    border-color:transparent; color:#FBEBE6;
+  }
+  #toolGrid .tool-card:first-child .body h3{ color:#FBEBE6; }
+  #toolGrid .tool-card:first-child .body p{ color:#F2D2CE; }
+  #toolGrid .tool-card:first-child .body .pill{ color:#FBEBE6; }
+  #toolGrid .tool-card:first-child .ic{ background:rgba(255,255,255,.16); color:#FBEBE6; }
+  #toolGrid .tool-card:first-child::after{ background:rgba(255,255,255,.22); }
+  #toolGrid .tool-card:first-child:hover{ border-color:transparent; }
+
+  /* Tipp = angehefteter Notizzettel */
+  .tip-strip{ background:var(--cream-deep); border:1px dashed var(--gold); position:relative; }
+  .tip-strip .eyebrow{ color:var(--mauve); }
+  .tip-strip::before{
+    content:""; position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(-2deg);
+    width:82px; height:20px; background:rgba(201,138,107,.30);
+    border:1px solid rgba(201,138,107,.22); border-radius:2px;
+  }
+
+  /* Bottom-Nav — aktive Markierung als weiche Pille */
+  .nav-btn{ position:relative; }
+  .nav-btn .ic, .nav-btn .lbl{ position:relative; z-index:1; }
+  .nav-btn.active{ color:var(--mauve); }
+  .nav-btn.active .ic{ color:var(--mauve); }
+  .nav-btn.active::before{
+    content:""; position:absolute; top:5px; left:50%; transform:translateX(-50%);
+    width:44px; height:30px; border-radius:var(--r-full);
+    background:var(--mauve-mist); z-index:0;
+  }
+  .bottom-nav{ border-top:1px solid var(--line-soft); }
+
+  /* ---------- Anmeldemaske ---------- */
+  .auth{
+    background:
+      radial-gradient(720px 480px at 50% -8%, #FBF4E8 0%, rgba(251,244,232,0) 60%),
+      radial-gradient(620px 420px at 88% 102%, #F7E9EA 0%, rgba(247,233,234,0) 55%),
+      var(--cream);
+  }
+  /* schwebende Karte auf Papier */
+  .auth-card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:var(--r-xl);
+    padding:30px 26px 24px;
+    box-shadow:var(--shadow-3);
+    position:relative;
+  }
+  /* handgemachtes Brot-Medaillon, zentriert, mit gestricheltem Ring */
+  .auth-loaf{
+    display:flex; margin:6px auto 22px;
+    background:radial-gradient(circle at 38% 30%, #FBF6EE, #EFE0CF);
+    border:1px solid rgba(168,133,79,.30);
+    box-shadow:var(--shadow-2), inset 0 1px 0 rgba(255,255,255,.7);
+    position:relative;
+  }
+  .auth-loaf::after{
+    content:""; position:absolute; inset:-6px; border-radius:inherit;
+    border:1px dashed var(--mauve-soft); opacity:.5;
+  }
+  /* handschriftlicher Akzent oben rechts */
+  #loginCard::before{
+    content:"frisch gebacken \2665"; position:absolute; top:16px; right:18px;
+    font-family:'Caveat',cursive; font-size:19px; color:var(--mauve);
+    transform:rotate(-5deg); opacity:.9; pointer-events:none;
+  }
+  /* Tabs */
+  .auth-tab.active{ color:var(--mauve); }
+  /* Eingabefelder etwas weicher */
+  .auth-input{ border-radius:var(--r-md); background:var(--cream); }
+  .auth-input:focus{ background:var(--cream-card); }
+  /* Bordeaux-Button statt flachem Dunkel */
+  .auth-primary{
+    background:linear-gradient(150deg,#A6435A 0%,#832F44 100%);
+    color:#FBEBE6; border-radius:var(--r-md);
+    box-shadow:var(--shadow-2);
+  }
+  .auth-primary:hover{ background:linear-gradient(150deg,#AE4A60 0%,#8E3649 100%); transform:translateY(-1px); }
+  .auth-link{ color:var(--mauve); font-weight:600; }
   </style>
 </head>
 <body>
