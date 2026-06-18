@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -1333,6 +1334,19 @@ h1.head em{font-style:italic}
 .recipe .rc .v{font-size:18px;font-weight:700;color:var(--ink);margin-top:3px}
 .recipe .rc .v small{font-size:11px;color:var(--ink-soft);font-weight:600}
 .recipe .vbreak{font-size:11.5px;color:var(--ink-soft);margin-top:10px;line-height:1.5;background:var(--mauve-mist);border-radius:10px;padding:9px 11px}
+.recipe .rhsub{font-family:var(--f-b);font-size:11px;font-weight:600;color:var(--mauve);letter-spacing:0}
+.recipe .rinputs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.recipe .rinp{background:var(--card-2);border-radius:12px;padding:9px 12px;border:1.5px solid transparent}
+.recipe .rinp:focus-within{border-color:var(--mauve-soft);background:var(--card)}
+.recipe .rlab{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);display:block}
+.recipe .rfield{display:flex;align-items:baseline;gap:5px;margin-top:3px}
+.recipe .rfield input{width:100%;min-width:0;border:none;background:transparent;font-size:19px;font-weight:700;color:var(--ink);font-family:var(--f-b);outline:none;padding:0;-moz-appearance:textfield}
+.recipe .rfield input::-webkit-outer-spin-button,.recipe .rfield input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.recipe .rfield input:focus{color:var(--mauve-deep)}
+.recipe .rfield span{font-size:12px;color:var(--ink-soft);font-weight:600}
+.recipe .rmisch{font-size:10px;color:var(--ink-faint);margin-top:3px}
+.recipe .rwrec{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mauve);background:var(--mauve-mist);border:none;border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer;margin-bottom:12px}
+.recipe .rwrec .ic svg{width:13px;height:13px}
 .timerbox{display:flex;align-items:center;gap:11px;background:var(--mauve-mist);border:1px solid var(--mauve-soft);border-radius:12px;padding:9px 10px;margin-top:9px}
 .timerbox.done{background:#EEF6EF;border-color:#BBDBC2}
 .tring{width:46px;height:46px;flex:none}
@@ -1355,7 +1369,6 @@ h1.head em{font-style:italic}
 &lt;/head&gt;&lt;body&gt;
 
 &lt;div class=&quot;phone&quot;&gt;
-  &lt;div class=&quot;preview-tag&quot;&gt;Vorschau · Stufe 2 · echter Rechner&lt;/div&gt;
   &lt;div class=&quot;topbar&quot;&gt;
     &lt;div class=&quot;logo&quot;&gt;&lt;b&gt;brot&lt;/b&gt;&lt;span&gt;Werkstatt&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;menu&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1Z&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
@@ -1432,7 +1445,12 @@ h1.head em{font-style:italic}
     &lt;div class=&quot;hint&quot; id=&quot;methodHint&quot;&gt;&lt;/div&gt;
 
     &lt;div class=&quot;recipe&quot;&gt;
-      &lt;div class=&quot;rh&quot;&gt;&lt;span class=&quot;ic &quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;5&quot; y=&quot;4&quot; width=&quot;14&quot; height=&quot;17&quot; rx=&quot;2.5&quot;/&gt;&lt;path d=&quot;M9 4.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 4.5V6H9Z&quot;/&gt;&lt;path d=&quot;M8.5 11h7M8.5 15h5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Dein Rezept&lt;/div&gt;
+      &lt;div class=&quot;rh&quot;&gt;&lt;span class=&quot;ic &quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;5&quot; y=&quot;4&quot; width=&quot;14&quot; height=&quot;17&quot; rx=&quot;2.5&quot;/&gt;&lt;path d=&quot;M9 4.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 4.5V6H9Z&quot;/&gt;&lt;path d=&quot;M8.5 11h7M8.5 15h5&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Dein Rezept &lt;span class=&quot;rhsub&quot;&gt;– tipp einfach ein&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;rinputs&quot;&gt;
+        &lt;div class=&quot;rinp&quot;&gt;&lt;span class=&quot;rlab&quot;&gt;Mehl&lt;/span&gt;&lt;div class=&quot;rfield&quot;&gt;&lt;input type=&quot;number&quot; id=&quot;rMehl&quot; min=&quot;0&quot; max=&quot;9999&quot; inputmode=&quot;numeric&quot;&gt;&lt;span&gt;g&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;rmisch&quot; id=&quot;rMehlNote&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;rinp&quot;&gt;&lt;span class=&quot;rlab&quot;&gt;Wasser&lt;/span&gt;&lt;div class=&quot;rfield&quot;&gt;&lt;input type=&quot;number&quot; id=&quot;rWater&quot; min=&quot;0&quot; max=&quot;9999&quot; inputmode=&quot;numeric&quot;&gt;&lt;span&gt;g&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;rwrec&quot; id=&quot;rWaterRec&quot;&gt;&lt;span class=&quot;ic &quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.7&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M5 12h13M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Wasser nach Empfehlung (Hydration)&lt;/button&gt;
       &lt;div class=&quot;rg&quot; id=&quot;recipeGrid&quot;&gt;&lt;/div&gt;
       &lt;div class=&quot;vbreak&quot; id=&quot;recipeBreak&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
@@ -1444,16 +1462,7 @@ h1.head em{font-style:italic}
         &lt;div class=&quot;chips&quot; id=&quot;flourGroups&quot;&gt;&lt;/div&gt;
         &lt;div class=&quot;chips&quot; id=&quot;flourKeys&quot; style=&quot;margin-top:8px&quot;&gt;&lt;/div&gt;
         &lt;div id=&quot;mischBox&quot; class=&quot;misch&quot; style=&quot;display:none;margin-top:12px&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;adv-h&quot; id=&quot;mengeH&quot;&gt;Mehlmenge&lt;/div&gt;
-        &lt;div class=&quot;numrow&quot; id=&quot;mengeRow&quot;&gt;
-          &lt;input type=&quot;number&quot; id=&quot;mengeInput&quot; min=&quot;0&quot; max=&quot;9999&quot;&gt;&lt;span class=&quot;unit&quot;&gt;g Mehl&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;adv-h&quot;&gt;Wasser / Hydration&lt;/div&gt;
-        &lt;div class=&quot;numrow&quot;&gt;
-          &lt;input type=&quot;number&quot; id=&quot;waterInput&quot; min=&quot;0&quot; max=&quot;9999&quot;&gt;&lt;span class=&quot;unit&quot;&gt;g Wasser&lt;/span&gt;
-          &lt;button class=&quot;rec&quot; id=&quot;waterRec&quot;&gt;Empfehlung&lt;/button&gt;
-          &lt;span class=&quot;hyd&quot; id=&quot;hydOut&quot;&gt;&lt;/span&gt;
-        &lt;/div&gt;
+        &lt;div class=&quot;hint&quot; id=&quot;mischNote&quot; style=&quot;display:none;margin:6px 2px 0&quot;&gt;Bei Mischbrot ergibt sich die Mehlmenge aus den drei Werten oben.&lt;/div&gt;
         &lt;div class=&quot;adv-h&quot;&gt;Salz&lt;/div&gt;
         &lt;div class=&quot;seg&quot; id=&quot;saltSeg&quot;&gt;
           &lt;button data-salt=&quot;1.8&quot;&gt;1,8 %&lt;/button&gt;
@@ -1493,14 +1502,6 @@ h1.head em{font-style:italic}
         &lt;button class=&quot;btn-prim&quot; id=&quot;saveBtn&quot;&gt;&lt;span class=&quot;ic &quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M12 20s-7-4.3-7-9.2A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.8C19 15.7 12 20 12 20Z&quot;/&gt;&lt;/svg&gt;&lt;/span&gt; Plan speichern&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;tabbar&quot;&gt;
-    &lt;div class=&quot;tab&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3 11l9-8 9 8M5 10v10h14V10&quot;/&gt;&lt;/svg&gt;Start&lt;/div&gt;
-    &lt;div class=&quot;tab on&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M4 7h16M4 12h16M4 17h10&quot;/&gt;&lt;/svg&gt;Planer&lt;/div&gt;
-    &lt;div class=&quot;tab timer&quot;&gt;&lt;div class=&quot;pill&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;8.5&quot;/&gt;&lt;path d=&quot;M12 7.5V12l3 2&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;Timer&lt;/div&gt;
-    &lt;div class=&quot;tab&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M5 4h14v16H5zM8 8h8M8 12h8M8 16h5&quot;/&gt;&lt;/svg&gt;Rezepte&lt;/div&gt;
-    &lt;div class=&quot;tab&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;path d=&quot;M12 8v5l3 2&quot;/&gt;&lt;/svg&gt;Wissen&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2122,7 +2123,7 @@ function renderFlour(){
   $('flourGroups').querySelectorAll('.chip').forEach(b=&gt;b.onclick=()=&gt;{const g=b.getAttribute('data-g');setFlour(FLOUR_GROUPS[g].keys[0]);renderAll();});
   $('flourKeys').querySelectorAll('.chip').forEach(b=&gt;b.onclick=()=&gt;{setFlour(b.getAttribute('data-k'));renderAll();});
   const mb=$('mischBox'); const isM=state.flourKey==='Mischbrot';
-  mb.style.display=isM?'':'none'; $('mengeH').style.display=isM?'none':''; $('mengeRow').style.display=isM?'none':'';
+  mb.style.display=isM?'':'none'; $('mischNote').style.display=isM?'':'none';
   if(isM){
     const grp=(label,key,grpName,gramField)=&gt;{
       const opts=FLOUR_GROUPS[grpName].keys.map(k=&gt;'&lt;option value=&quot;'+k+'&quot; '+(state[key]===k?'selected':'')+'&gt;'+FLOUR[k].label+'&lt;/option&gt;').join('');
@@ -2139,22 +2140,23 @@ function renderStarter(){
   $('starterChips').querySelectorAll('.chip').forEach(b=&gt;b.onclick=()=&gt;{state.starterKey=b.getAttribute('data-s');renderAll();});
 }
 function renderRecipeInputs(){
-  $('mengeInput').value=state.flourAmount;
-  $('waterInput').value=state.waterGram;
   $('pmSeg').querySelectorAll('button').forEach(b=&gt;b.classList.toggle('on',b.getAttribute('data-pm')===state.prefermentMode));
   $('saltSeg').querySelectorAll('button').forEach(b=&gt;b.classList.toggle('on',parseFloat(b.getAttribute('data-salt'))===state.saltPct));
 }
 function renderRecipe(r){
+  const isM=state.flourKey==='Mischbrot';
+  const mehl=$('rMehl'), wat=$('rWater');
+  mehl.value = isM ? r.recipe.flourTotal : state.flourAmount;
+  mehl.disabled = isM;
+  $('rMehlNote').textContent = isM ? 'Summe aus Rezept-Details' : '';
+  if(document.activeElement!==wat) wat.value=state.waterGram;
   const rc=(k,v,sub)=&gt;'&lt;div class=&quot;rc&quot;&gt;&lt;div class=&quot;k&quot;&gt;'+k+'&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;'+v+(sub?' &lt;small&gt;'+sub+'&lt;/small&gt;':'')+'&lt;/div&gt;&lt;/div&gt;';
   $('recipeGrid').innerHTML=
-    rc('Mehl', r.recipe.flourTotal+' g')+
-    rc('Wasser', r.recipe.water+' g')+
     rc('Salz', r.recipe.salt+' g', state.saltPct.toString().replace('.',',')+' %')+
     rc('Vorteig', r.recipe.preferment+' g')+
     rc('Gesamter Teig', r.recipe.total+' g')+
     rc('Hydration', r.recipe.hydration+' %');
   $('recipeBreak').innerHTML='Vorteig ansetzen: &lt;b&gt;'+r.recipe.anstellgut+' g&lt;/b&gt; aktiver Starter + &lt;b&gt;'+r.recipe.feedFlour+' g&lt;/b&gt; Mehl + &lt;b&gt;'+r.recipe.feedWater+' g&lt;/b&gt; Wasser (1:3:3).';
-  $('hydOut').textContent='Hydration '+r.recipe.hydration+'%';
   let hint='';
   if(state.method==='lilly'&amp;&amp;r.recipe.flourTotal&gt;500) hint='Lilly fasst ~500 g Mehl \u2013 f\u00fcr mehr nimm den Ofenmeister.';
   else if(state.method==='ofenmeister'&amp;&amp;r.recipe.flourTotal&gt;1000) hint='Der Ofenmeister fasst ~1 kg Mehl \u2013 etwas viel f\u00fcr diesen Teig.';
@@ -2215,9 +2217,10 @@ $('bakeInput').onchange=e=&gt;{const d=new Date(e.target.value);if(!isNaN(d)){st
 $('eatInput').onchange=e=&gt;{const d=new Date(e.target.value);if(!isNaN(d)){state.eatTime=d;renderAll();}};
 $('pfMinus').onclick=()=&gt;{state.prefermentGram=Math.max(50,state.prefermentGram-10);$('pfVal').textContent=state.prefermentGram+' g';renderAll();};
 $('pfPlus').onclick=()=&gt;{state.prefermentGram=Math.min(400,state.prefermentGram+10);$('pfVal').textContent=state.prefermentGram+' g';renderAll();};
-$('mengeInput').onchange=e=&gt;{const v=Math.max(0,Math.min(9999,parseInt(e.target.value||'0',10)));state.flourAmount=v;if(state.flourKey!=='Mischbrot')state.waterGram=Math.round(v*FLOUR[state.flourKey].defaultHydration/100);renderAll();};
-$('waterInput').onchange=e=&gt;{state.waterGram=Math.max(0,Math.min(9999,parseInt(e.target.value||'0',10)));renderAll();};
-$('waterRec').onclick=()=&gt;{const base=state.flourKey==='Mischbrot'?(state.wheatGram+state.dinkelGram+state.ryeGram):state.flourAmount;const f=state.flourKey==='Mischbrot'?74:FLOUR[state.flourKey].defaultHydration;state.waterGram=Math.round(base*f/100);renderAll();};
+$('rMehl').onchange=e=&gt;{const v=Math.max(0,Math.min(9999,parseInt(e.target.value||'0',10)));state.flourAmount=v;if(state.flourKey!=='Mischbrot')state.waterGram=Math.round(v*FLOUR[state.flourKey].defaultHydration/100);renderAll();};
+$('rWater').oninput=e=&gt;{const v=parseInt(e.target.value||'0',10);if(!isNaN(v)){state.waterGram=Math.max(0,Math.min(9999,v));const r=compute();renderRecipe(r);renderSummary(r);renderTimeline(r);}};
+$('rWater').onchange=()=&gt;renderAll();
+$('rWaterRec').onclick=()=&gt;{const base=state.flourKey==='Mischbrot'?(state.wheatGram+state.dinkelGram+state.ryeGram):state.flourAmount;const f=state.flourKey==='Mischbrot'?74:FLOUR[state.flourKey].defaultHydration;state.waterGram=Math.round(base*f/100);renderAll();};
 $('saltSeg').querySelectorAll('button').forEach(b=&gt;b.onclick=()=&gt;{state.saltPct=parseFloat(b.getAttribute('data-salt'));renderAll();});
 $('pmSeg').querySelectorAll('button').forEach(b=&gt;b.onclick=()=&gt;{state.prefermentMode=b.getAttribute('data-pm');renderAll();});
 $('convDir').querySelectorAll('button').forEach(b=&gt;b.onclick=()=&gt;{state.convDir=b.dataset.d;state.convFlour=b.dataset.d==='om2lily'?1000:500;renderConv();});
