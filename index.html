@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
   <title>Sauer macht krustig — Brot-Werkstatt</title>
-  <meta name="description" content="Deine Brot-Werkstatt: Hydration, Stueckgare, Inclusions, Brotbackplaner und Fehlerfinder in einer App." />
+  <meta name="description" content="Deine Brot-Werkstatt: Hydration, Stückgare, Inclusions, Brotbackplaner und Fehlerfinder in einer App." />
 
   <meta name="theme-color" content="#FAF6F0" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -715,14 +715,14 @@
   <style id="bw-theme-concept">
   /* ===========================================================
      THEME: Premium-Editorial-Konzept (Creme / Bordeaux)
-     Reine Optik-Schicht ueber der bestehenden Shell.
-     Mechanik (Login, Service-Worker, Rechner) bleibt unberuehrt.
-     Zum Zuruecksetzen einfach diesen kompletten <style>-Block loeschen.
+     Reine Optik-Schicht über der bestehenden Shell.
+     Mechanik (Login, Service-Worker, Rechner) bleibt unberührt.
+     Zum Zurücksetzen einfach diesen kompletten <style>-Block löschen.
      =========================================================== */
   :root{
     --cream:#F4EDE2; --cream-warm:#EBE0CF; --cream-card:#FBF7F0; --cream-deep:#EFE4D2;
     --ink:#2C2420; --ink-soft:#7A6D60; --ink-mute:#A1937F;
-    --mauve:#9E3E54; --mauve-deep:#832F44; --mauve-soft:#C98494; --mauve-mist:#F6E9EA;
+    --mauve:#A0566C; --mauve-deep:#824A5E; --mauve-soft:#C994A4; --mauve-mist:#F3E8ED;
     --line:#E7DBC9; --line-soft:#EFE6D7; --gold:#C2A079;
     --shadow-1:0 1px 2px rgba(74,46,30,.05), 0 1px 3px rgba(74,46,30,.07);
     --shadow-2:0 2px 6px rgba(74,46,30,.05), 0 14px 34px -18px rgba(74,46,30,.30);
@@ -765,7 +765,7 @@
     box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
   }
   #toolGrid .tool-card:first-child{
-    background:linear-gradient(155deg,#A6435A 0%,#832F44 100%);
+    background:linear-gradient(155deg,#A85E73 0%,#824A5E 100%);
     border-color:transparent; color:#FBEBE6;
   }
   #toolGrid .tool-card:first-child .body h3{ color:#FBEBE6; }
@@ -837,12 +837,23 @@
   .auth-input:focus{ background:var(--cream-card); }
   /* Bordeaux-Button statt flachem Dunkel */
   .auth-primary{
-    background:linear-gradient(150deg,#A6435A 0%,#832F44 100%);
+    background:linear-gradient(150deg,#A85E73 0%,#824A5E 100%);
     color:#FBEBE6; border-radius:var(--r-md);
     box-shadow:var(--shadow-2);
   }
-  .auth-primary:hover{ background:linear-gradient(150deg,#AE4A60 0%,#8E3649 100%); transform:translateY(-1px); }
+  .auth-primary:hover{ background:linear-gradient(150deg,#B06882 0%,#8C5267 100%); transform:translateY(-1px); }
   .auth-link{ color:var(--mauve); font-weight:600; }
+
+  /* ---------- Vorlage: Playfair-Headlines + Linien-Icons ---------- */
+  .brand-mark .word b, #view-home .hero h1, .auth h1, #authHeadline,
+  .section-head .title, #toolGrid .tool-card .body h3{
+    font-family:'Playfair Display', Georgia, serif !important;
+  }
+  .brand-mark .loaf{ color:var(--mauve); }
+  .brand-mark .loaf svg{ width:24px; height:24px; }
+  #toolGrid .tool-card .ic svg{ width:26px; height:26px; }
+  .nav-btn .ic{ display:inline-flex; align-items:center; justify-content:center; }
+  .nav-btn .ic svg{ width:22px; height:22px; }
   </style>
 </head>
 <body>
@@ -854,8 +865,8 @@
     <div class="auth-card" id="loginCard">
       <div class="auth-loaf" aria-hidden="true">🍞</div>
       <div class="eyebrow" style="margin-bottom:12px;">Sauer macht krustig</div>
-      <h1 id="authHeadline">Willkommen <em>zurueck.</em></h1>
-      <p class="auth-sub" id="authSubtitle">Schoen, dass du wieder da bist. Melde dich an, um auf deine Brot-Werkstatt zuzugreifen.</p>
+      <h1 id="authHeadline">Willkommen <em>zurück.</em></h1>
+      <p class="auth-sub" id="authSubtitle">Schön, dass du wieder da bist. Melde dich an, um auf deine Brot-Werkstatt zuzugreifen.</p>
 
       <div class="auth-tabs" role="tablist">
         <button class="auth-tab active" data-mode="login" type="button" role="tab">Anmelden</button>
@@ -893,7 +904,7 @@
       <div class="auth-loaf" aria-hidden="true">🍞</div>
       <div class="eyebrow" style="margin-bottom:12px;">Sauer macht krustig</div>
       <h1>Neues Passwort <em>setzen.</em></h1>
-      <p class="auth-sub">Fast geschafft. Waehle jetzt dein neues Passwort, dann bist du gleich wieder drin.</p>
+      <p class="auth-sub">Fast geschafft. Wähle jetzt dein neues Passwort, dann bist du gleich wieder drin.</p>
 
       <div class="auth-field">
         <label for="newPassword">Neues Passwort</label>
@@ -909,7 +920,7 @@
       <div id="recoveryMessage" class="auth-msg"></div>
 
       <div class="auth-footer">
-        Du hast diesen Link aus deiner &bdquo;Passwort vergessen&ldquo;-Mail geoeffnet.<br>
+        Du hast diesen Link aus deiner &bdquo;Passwort vergessen&ldquo;-Mail geöffnet.<br>
         Klappt etwas nicht? Schreib Felicitas: <a href="mailto:sauermachtkrustig@gmail.com">sauermachtkrustig@gmail.com</a>
       </div>
     </div>
@@ -922,9 +933,9 @@
 
     <header class="topbar" id="topbar">
       <div class="topbar-inner">
-        <button class="back-btn" id="backBtn" aria-label="Zurueck zur Uebersicht">←</button>
+        <button class="back-btn" id="backBtn" aria-label="Zurück zur Uebersicht">←</button>
         <div class="brand-mark">
-          <span class="loaf" aria-hidden="true">🍞</span>
+          <span class="loaf" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 14c0-4 3.2-7 7-7s7 3 7 7c0 1.2-.9 2-2 2H7c-1.1 0-2-.8-2-2Z"/><path d="M10 10.5v3.5M14 10.5v3.5" opacity=".55"/></svg></span>
           <div class="word">
             <b>Sauer macht krustig</b>
             <small id="tagline">Deine Brot-Werkstatt</small>
@@ -940,8 +951,8 @@
       <section class="view active" id="view-home" aria-label="Uebersicht">
         <div class="hero">
           <div class="eyebrow" id="dayGreeting">Heute · Backtag</div>
-          <h1>Was backst du <em>heute?</em></h1>
-          <p>Fuenf Werkzeuge fuer dein Sauerteig-Handwerk &mdash; vom ersten Wasserglas bis zur knusprigen Kruste.</p>
+          <h1>Was backen wir <em>heute?</em></h1>
+          <p>Fünf Werkzeuge für dein Sauerteig-Handwerk &mdash; vom ersten Wasserglas bis zur knusprigen Kruste.</p>
           <div class="greeting-meta">
             <span class="dot"></span>
             <span id="userEmailHint">Eingeloggt</span>
@@ -955,42 +966,42 @@
 
         <div class="tool-grid" id="toolGrid">
           <button class="tool-card" data-tool="brotbackplaner" type="button">
-            <span class="ic">🍞</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4M8 13h5"/></svg></span>
             <div class="body">
               <h3>Brotbackplaner</h3>
-              <p>Backplan rueckwaerts aus deiner Wunsch-Backzeit &mdash; mit Autolyse und Fermentolyse.</p>
+              <p>Backplan rückwärts aus deiner Wunsch-Backzeit &mdash; mit Autolyse und Fermentolyse.</p>
               <span class="pill">Plan erstellen</span>
             </div>
           </button>
           <button class="tool-card" data-tool="hydration" type="button">
-            <span class="ic">💧</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"/></svg></span>
             <div class="body">
               <h3>Hydration</h3>
-              <p>Wieviel Wasser fuer dein Mehl &mdash; einfach erklaert, auch fuer Anfaengerinnen.</p>
+              <p>Wieviel Wasser für dein Mehl &mdash; einfach erklärt, auch für Anfängerinnen.</p>
               <span class="pill">Rechnen</span>
             </div>
           </button>
           <button class="tool-card" data-tool="inclusions" type="button">
-            <span class="ic">✨</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.2"/><circle cx="16" cy="7.5" r="2.2"/><circle cx="12" cy="15" r="2.2"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></span>
             <div class="body">
               <h3>Inclusions</h3>
-              <p>Nuesse, Saaten, Trockenfruechte richtig portionieren &mdash; ohne den Teig zu stoeren.</p>
+              <p>Nüsse, Saaten, Trockenfrüchte richtig portionieren &mdash; ohne den Teig zu stören.</p>
               <span class="pill">Planen</span>
             </div>
           </button>
           <button class="tool-card" data-tool="stueckgare" type="button">
-            <span class="ic">⏱️</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span>
             <div class="body">
-              <h3>Stueckgare</h3>
-              <p>Wie lange noch &mdash; Raumtemperatur oder Kuehlschrank? Mit Fingertest-Guide.</p>
+              <h3>Stückgare</h3>
+              <p>Wie lange noch &mdash; Raumtemperatur oder Kühlschrank? Mit Fingertest-Guide.</p>
               <span class="pill">Timing</span>
             </div>
           </button>
           <button class="tool-card" data-tool="fehlerfinder" type="button">
-            <span class="ic">🔍</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span>
             <div class="body">
               <h3>Fehlerfinder</h3>
-              <p>Brot nicht gelungen? Finde die Ursache &mdash; und gleich die Loesung dazu.</p>
+              <p>Brot nicht gelungen? Finde die Ursache &mdash; und gleich die Lösung dazu.</p>
               <span class="pill">Analysieren</span>
             </div>
           </button>
@@ -1000,7 +1011,7 @@
           <div class="em">🌾</div>
           <div class="txt">
             <div class="eyebrow">Tipp des Tages</div>
-            <p id="tipOfDay">Ein guter Teig fuehlt sich an wie ein weiches Ohrlaeppchen. Dehne ihn vorsichtig &mdash; reisst er, braucht er mehr Ruhe.</p>
+            <p id="tipOfDay">Ein guter Teig fühlt sich an wie ein weiches Ohrläppchen. Dehne ihn vorsichtig &mdash; reißt er, braucht er mehr Ruhe.</p>
           </div>
         </div>
 
@@ -3917,9 +3928,9 @@ function buildCard(key, content, isWarn) {
         </div>
       </section>
 
-      <section class="view" id="view-stueckgare" aria-label="Stueckgare">
+      <section class="view" id="view-stueckgare" aria-label="Stückgare">
         <div class="iframe-host">
-          <iframe title="Stueckgare" loading="lazy"
+          <iframe title="Stückgare" loading="lazy"
             sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-modals"
             srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;de&quot;&gt;
@@ -4369,7 +4380,7 @@ function buildCard(key, content, isWarn) {
         <div class="ff-hero">
           <div class="eyebrow">Fehlerfinder</div>
           <h1>Was ist <em>passiert?</em></h1>
-          <p>Tippe auf das Symptom, das am ehesten zu deinem Brot passt &mdash; ich zeige dir die haeufigsten Ursachen und was du beim naechsten Mal anders machen kannst.</p>
+          <p>Tippe auf das Symptom, das am ehesten zu deinem Brot passt &mdash; ich zeige dir die häufigsten Ursachen und was du beim nächsten Mal anders machen kannst.</p>
         </div>
         <div class="ff-search">
           <input id="ffSearch" type="search" placeholder="Symptom suchen &mdash; z.B. ‚dichte Krume'" aria-label="Symptom suchen" />
@@ -4383,22 +4394,22 @@ function buildCard(key, content, isWarn) {
     <nav class="bottom-nav" aria-label="Hauptnavigation">
       <div class="bottom-nav-inner">
         <button class="nav-btn active" data-tool="home" type="button">
-          <span class="ic">⌂</span><span class="lbl">Start</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1Z"/></svg></span><span class="lbl">Start</span>
         </button>
         <button class="nav-btn" data-tool="brotbackplaner" type="button">
-          <span class="ic">🍞</span><span class="lbl">Planer</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4M8 13h5"/></svg></span><span class="lbl">Planer</span>
         </button>
         <button class="nav-btn" data-tool="hydration" type="button">
-          <span class="ic">💧</span><span class="lbl">Hydro</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"/></svg></span><span class="lbl">Hydro</span>
         </button>
         <button class="nav-btn" data-tool="inclusions" type="button">
-          <span class="ic">✨</span><span class="lbl">Mix-ins</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.2"/><circle cx="16" cy="7.5" r="2.2"/><circle cx="12" cy="15" r="2.2"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></span><span class="lbl">Mix-ins</span>
         </button>
         <button class="nav-btn" data-tool="stueckgare" type="button">
-          <span class="ic">⏱️</span><span class="lbl">Gare</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></span><span class="lbl">Gare</span>
         </button>
         <button class="nav-btn" data-tool="fehlerfinder" type="button">
-          <span class="ic">🔍</span><span class="lbl">Hilfe</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span><span class="lbl">Hilfe</span>
         </button>
       </div>
     </nav>
@@ -4407,18 +4418,18 @@ function buildCard(key, content, isWarn) {
   <!-- ===== LEGAL MODALS ===== -->
   <div class="legal-modal" id="legalImpressum">
     <div class="legal-card">
-      <button class="legal-close" data-close-legal type="button" aria-label="Schliessen">✕</button>
+      <button class="legal-close" data-close-legal type="button" aria-label="Schließen">✕</button>
       <h2>Impressum</h2>
-      <p><small>Angaben gemaess § 5 TMG</small></p>
+      <p><small>Angaben gemäß § 5 TMG</small></p>
       <p>
         Felicitas Reitmeier<br>
         Hammeler Str 34<br>
-        86356 Neusaess<br>
+        86356 Neusäß<br>
         Deutschland
       </p>
       <h3>Kontakt</h3>
       <p>E-Mail: <a href="mailto:sauermachtkrustig@gmail.com">sauermachtkrustig@gmail.com</a></p>
-      <h3>Verantwortlich fuer den Inhalt</h3>
+      <h3>Verantwortlich für den Inhalt</h3>
       <p>Felicitas Reitmeier &mdash; Anschrift wie oben.</p>
       <h3>Hinweis</h3>
       <p>Diese App stellt digitale Backhilfen, Rechner und Planer bereit. Die Angaben dienen der Orientierung und ersetzen keine individuelle fachliche Beratung.</p>
@@ -4427,20 +4438,20 @@ function buildCard(key, content, isWarn) {
 
   <div class="legal-modal" id="legalDatenschutz">
     <div class="legal-card">
-      <button class="legal-close" data-close-legal type="button" aria-label="Schliessen">✕</button>
-      <h2>Datenschutzerklaerung</h2>
+      <button class="legal-close" data-close-legal type="button" aria-label="Schließen">✕</button>
+      <h2>Datenschutzerklärung</h2>
       <h3>1. Verantwortliche Stelle</h3>
-      <p>Felicitas Reitmeier &mdash; Hammeler Str 34, 86356 Neusaess. E-Mail: sauermachtkrustig@gmail.com</p>
+      <p>Felicitas Reitmeier &mdash; Hammeler Str 34, 86356 Neusäß. E-Mail: sauermachtkrustig@gmail.com</p>
       <h3>2. Welche Daten verarbeitet werden</h3>
-      <p>Bei Nutzung des Login-Bereichs werden E-Mail-Adresse, verschluesselte Authentifizierungsdaten sowie technische Nutzungsdaten (IP-Adresse, Browserinformationen, Zugriffszeiten) verarbeitet.</p>
+      <p>Bei Nutzung des Login-Bereichs werden E-Mail-Adresse, verschlüsselte Authentifizierungsdaten sowie technische Nutzungsdaten (IP-Adresse, Browserinformationen, Zugriffszeiten) verarbeitet.</p>
       <h3>3. Zweck</h3>
       <p>Bereitstellung der Nutzerkonten, Schutz des Zugangs und technische Auslieferung der App.</p>
       <h3>4. Supabase &amp; Vercel</h3>
-      <p>Fuer Registrierung, Login und Nutzerverwaltung wird Supabase genutzt. Das Hosting erfolgt ueber Vercel. Beide Anbieter verarbeiten Daten zur Bereitstellung der Dienste.</p>
+      <p>Für Registrierung, Login und Nutzerverwaltung wird Supabase genutzt. Das Hosting erfolgt über Vercel. Beide Anbieter verarbeiten Daten zur Bereitstellung der Dienste.</p>
       <h3>5. Cookies &amp; lokaler Speicher</h3>
-      <p>Fuer den Login werden technisch notwendige Cookies bzw. lokale Speichermechanismen verwendet.</p>
+      <p>Für den Login werden technisch notwendige Cookies bzw. lokale Speichermechanismen verwendet.</p>
       <h3>6. Rechte</h3>
-      <p>Du hast Recht auf Auskunft, Berichtigung, Loeschung, Einschraenkung der Verarbeitung, Datenuebertragbarkeit und Beschwerde bei einer Aufsichtsbehoerde.</p>
+      <p>Du hast Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Beschwerde bei einer Aufsichtsbehörde.</p>
       <h3>7. Kontakt</h3>
       <p>Bei Fragen zum Datenschutz: <a href="mailto:sauermachtkrustig@gmail.com">sauermachtkrustig@gmail.com</a></p>
     </div>
@@ -4456,54 +4467,54 @@ function buildCard(key, content, isWarn) {
         emoji: "🥖",
         symptom: "Dichte, klitschige Krume",
         causes: [
-          { title: "Stockgare zu kurz", solution: "Bulk-Fermentation um 20–30 % verlaengern. Teig sollte 50–80 % an Volumen gewinnen und sich kuppelartig woelben." },
-          { title: "Starter nicht am Peak", solution: "Vor dem Mischen Schwimmtest machen. Ein Loeffel Starter muss oben schwimmen. Sonst noch warten." },
-          { title: "Zu wenig Spannung beim Formen", solution: "Pre-Shape & Final-Shape sauber durchziehen &mdash; ohne zu viel Mehl. Teigoberflaeche soll glatt und straff sein." }
+          { title: "Stockgare zu kurz", solution: "Bulk-Fermentation um 20–30 % verlängern. Teig sollte 50–80 % an Volumen gewinnen und sich kuppelartig wölben." },
+          { title: "Starter nicht am Peak", solution: "Vor dem Mischen Schwimmtest machen. Ein Löffel Starter muss oben schwimmen. Sonst noch warten." },
+          { title: "Zu wenig Spannung beim Formen", solution: "Pre-Shape & Final-Shape sauber durchziehen &mdash; ohne zu viel Mehl. Teigoberfläche soll glatt und straff sein." }
         ]
       },
       {
         emoji: "🫧",
-        symptom: "Riesige Loecher unter der Kruste",
+        symptom: "Riesige Löcher unter der Kruste",
         causes: [
-          { title: "Untergare", solution: "Stueckgare verlaengern. Teig sollte sich beim Druck langsam zurueckdraengen, nicht sofort." },
-          { title: "Ofentemperatur zu hoch", solution: "Anbacken bei 230–240 °C, dann auf 200–210 °C reduzieren. Zu hohe Hitze treibt grosse Blasen unter die Kruste." },
-          { title: "Schluss zu locker", solution: "Beim Formen Naht fest verschliessen &mdash; Spannung in der Oberflaeche aufbauen." }
+          { title: "Untergare", solution: "Stückgare verlängern. Teig sollte sich beim Druck langsam zurückdrängen, nicht sofort." },
+          { title: "Ofentemperatur zu hoch", solution: "Anbacken bei 230–240 °C, dann auf 200–210 °C reduzieren. Zu hohe Hitze treibt große Blasen unter die Kruste." },
+          { title: "Schluss zu locker", solution: "Beim Formen Naht fest verschließen &mdash; Spannung in der Oberfläche aufbauen." }
         ]
       },
       {
         emoji: "🪨",
         symptom: "Brot geht im Ofen kaum auf",
         causes: [
-          { title: "Uebergare", solution: "Teig hat sein Triebpotenzial schon verbraucht. Naechstes Mal frueher in den Ofen oder kuehler garen lassen." },
-          { title: "Starter zu jung oder zu alt", solution: "Idealer Starter: 4–8 Stunden nach Fuetterung, am Peak. Bei Lievito 6–10 Stunden." },
-          { title: "Schwacher Ofentrieb", solution: "Im geschlossenen Gefaess (Topf, Ofenmeister) anbacken &mdash; der Dampf sorgt fuer Volumen." }
+          { title: "Uebergare", solution: "Teig hat sein Triebpotenzial schon verbraucht. Nächstes Mal früher in den Ofen oder kühler garen lassen." },
+          { title: "Starter zu jung oder zu alt", solution: "Idealer Starter: 4–8 Stunden nach Fütterung, am Peak. Bei Lievito 6–10 Stunden." },
+          { title: "Schwacher Ofentrieb", solution: "Im geschlossenen Gefäß (Topf, Ofenmeister) anbacken &mdash; der Dampf sorgt für Volumen." }
         ]
       },
       {
         emoji: "💔",
-        symptom: "Kruste reisst unkontrolliert ein",
+        symptom: "Kruste reißt unkontrolliert ein",
         causes: [
-          { title: "Kein Einschnitt gesetzt", solution: "Mit scharfer Klinge ca. 1 cm tief einschneiden &mdash; ein 45°-Winkel ergibt das schoenste Ear." },
-          { title: "Untergare", solution: "Teig hatte noch zuviel Triebkraft. Stueckgare 30–60 Min verlaengern." },
-          { title: "Zu wenig Dampf in den ersten 20 Min", solution: "Topf/Ofenmeister geschlossen lassen oder Wasserschale + Spruehflasche nutzen." }
+          { title: "Kein Einschnitt gesetzt", solution: "Mit scharfer Klinge ca. 1 cm tief einschneiden &mdash; ein 45°-Winkel ergibt das schönste Ear." },
+          { title: "Untergare", solution: "Teig hatte noch zuviel Triebkraft. Stückgare 30–60 Min verlängern." },
+          { title: "Zu wenig Dampf in den ersten 20 Min", solution: "Topf/Ofenmeister geschlossen lassen oder Wasserschale + Sprühflasche nutzen." }
         ]
       },
       {
         emoji: "🍞",
-        symptom: "Krume gummiartig & zaeh",
+        symptom: "Krume gummiartig & zäh",
         causes: [
           { title: "Zu kurz gebacken", solution: "Kerntemperatur sollte 95–98 °C erreichen. Sonst noch 5–10 Min weiterbacken." },
           { title: "Zu hohe Hydration ohne Struktur", solution: "Bei hoher Hydration mehr Coil-Folds und ausreichend Bulk &mdash; sonst kollabiert das Gluten." },
-          { title: "Zuviel Roggen ohne Sauerteig", solution: "Roggen braucht Saeure fuer Struktur. Anteil Roggensauer erhoehen oder Sauerteiganteil insgesamt steigern." }
+          { title: "Zuviel Roggen ohne Sauerteig", solution: "Roggen braucht Säure für Struktur. Anteil Roggensauer erhöhen oder Sauerteiganteil insgesamt steigern." }
         ]
       },
       {
         emoji: "🌫️",
         symptom: "Brot zu sauer im Geschmack",
         causes: [
-          { title: "Zu lange Kuehlschrankgare", solution: "Kalte Stueckgare auf 8–12 h begrenzen. Laenger = essigsaurer." },
-          { title: "Starter ueberreif", solution: "Frueher fuettern oder Starter nach Peak in den Kuehlschrank stellen." },
-          { title: "Zu viel Roggen-/Vollkornanteil", solution: "Hellere Mehlsorten beimischen &mdash; sie mildern die Saeure." }
+          { title: "Zu lange Kühlschrankgare", solution: "Kalte Stückgare auf 8–12 h begrenzen. Länger = essigsaurer." },
+          { title: "Starter überreif", solution: "Früher füttern oder Starter nach Peak in den Kühlschrank stellen." },
+          { title: "Zu viel Roggen-/Vollkornanteil", solution: "Hellere Mehlsorten beimischen &mdash; sie mildern die Säure." }
         ]
       },
       {
@@ -4521,16 +4532,16 @@ function buildCard(key, content, isWarn) {
         causes: [
           { title: "Ofentemperatur zu hoch", solution: "Beim Anbacken auf max. 240 °C bleiben, danach reduzieren." },
           { title: "Backofen heizt von unten zu stark", solution: "Backstein/Blech auf die mittlere Schiene legen &mdash; nicht zu tief." },
-          { title: "Topf hat zu duennen Boden", solution: "Bei duennen Toepfen ein zweites Blech unter den Topf legen oder Backpapier doppeln." }
+          { title: "Topf hat zu dünnen Boden", solution: "Bei dünnen Töpfen ein zweites Blech unter den Topf legen oder Backpapier doppeln." }
         ]
       },
       {
         emoji: "🌪️",
-        symptom: "Teig faellt nach dem Wenden zusammen",
+        symptom: "Teig fällt nach dem Wenden zusammen",
         causes: [
-          { title: "Uebergare", solution: "Teig war schon ueberreif. Naechstes Mal frueher backen &mdash; Fingertest: Eindruck zieht sich langsam zurueck." },
+          { title: "Uebergare", solution: "Teig war schon überreif. Nächstes Mal früher backen &mdash; Fingertest: Eindruck zieht sich langsam zurück." },
           { title: "Zu wenig Spannung beim Shapen", solution: "Pre-Shape 20–30 Min ruhen lassen, dann straff final-shapen." },
-          { title: "Zu hohe Hydration fuer das Mehl", solution: "Vor allem Dinkel und schwache Weizen-Typen vertragen weniger Wasser &mdash; 2–4 % weniger probieren." }
+          { title: "Zu hohe Hydration für das Mehl", solution: "Vor allem Dinkel und schwache Weizen-Typen vertragen weniger Wasser &mdash; 2–4 % weniger probieren." }
         ]
       },
       {
@@ -4538,25 +4549,25 @@ function buildCard(key, content, isWarn) {
         symptom: "Kruste zu dick & zu hart",
         causes: [
           { title: "Zu lange gebacken", solution: "Backzeit um 5–10 Min reduzieren. Klopftest auf der Unterseite: hohl = fertig." },
-          { title: "Zu wenig Dampf", solution: "Erste 20 Min mit Topf-Deckel oder Wasserschale &mdash; Dampf haelt die Kruste duenn und elastisch." },
-          { title: "Brot zu lange im heissen Ofen ausgekuehlt", solution: "Nach dem Backen rausnehmen und auf einem Rost auskuehlen lassen &mdash; nicht im Ofen lassen." }
+          { title: "Zu wenig Dampf", solution: "Erste 20 Min mit Topf-Deckel oder Wasserschale &mdash; Dampf hält die Kruste dünn und elastisch." },
+          { title: "Brot zu lange im heißen Ofen ausgekühlt", solution: "Nach dem Backen rausnehmen und auf einem Rost auskühlen lassen &mdash; nicht im Ofen lassen." }
         ]
       },
       {
         emoji: "🌊",
         symptom: "Teig ist nach Bulk wie Suppe",
         causes: [
-          { title: "Zu warm fermentiert", solution: "Bei ueber 26 °C ist die Hefeaktivitaet zu schnell. Naechstes Mal kuehler stellen oder Bulk verkuerzen." },
+          { title: "Zu warm fermentiert", solution: "Bei über 26 °C ist die Hefeaktivität zu schnell. Nächstes Mal kühler stellen oder Bulk verkürzen." },
           { title: "Zu wenig Stretch & Folds", solution: "In den ersten 2 h: 3–4 Sets im Abstand von 30 Min. Bei hoher Hydration eher mehr." },
-          { title: "Mehl mit niedrigem Klebergehalt", solution: "Auf Type mit hoeherem Eiweissgehalt wechseln (z.B. 812 statt 405) oder weniger Wasser nehmen." }
+          { title: "Mehl mit niedrigem Klebergehalt", solution: "Auf Type mit höherem Eiweißgehalt wechseln (z.B. 812 statt 405) oder weniger Wasser nehmen." }
         ]
       },
       {
         emoji: "🧊",
         symptom: "Krume bleibt zu feucht & klamm",
         causes: [
-          { title: "Brot zu warm angeschnitten", solution: "Mindestens 2–3 h auskuehlen lassen, besser ueber Nacht. Krume setzt sich noch lange nach dem Backen." },
-          { title: "Hydration zu hoch fuer das Mehl", solution: "Bei klitschiger Krume Hydration im naechsten Versuch um 2–4 % senken." },
+          { title: "Brot zu warm angeschnitten", solution: "Mindestens 2–3 h auskühlen lassen, besser über Nacht. Krume setzt sich noch lange nach dem Backen." },
+          { title: "Hydration zu hoch für das Mehl", solution: "Bei klitschiger Krume Hydration im nächsten Versuch um 2–4 % senken." },
           { title: "Zu kurz gebacken", solution: "Kerntemperatur 95–98 °C anstreben. Bei dunkleren Mehlen eher 98 °C." }
         ]
       }
@@ -4608,13 +4619,13 @@ function buildCard(key, content, isWarn) {
 
     // ---------- Tip of the day ----------
     const TIPS = [
-      "Ein guter Teig fuehlt sich an wie ein weiches Ohrlaeppchen. Dehne ihn vorsichtig &mdash; reisst er, braucht er mehr Ruhe.",
-      "Sauer macht nicht muede &mdash; aber geduldig. Der Starter merkt sich, wie du ihn fuetterst.",
-      "Die Kruste verraet dir, wie der Dampf im Ofen war: Glanz = guter Dampf, matt = zu trocken.",
-      "Wenn der Teig kuehl und langsam reift, schmeckt das Brot tiefer. Eile macht Brot bitter.",
+      "Ein guter Teig fühlt sich an wie ein weiches Ohrläppchen. Dehne ihn vorsichtig &mdash; reißt er, braucht er mehr Ruhe.",
+      "Sauer macht nicht müde &mdash; aber geduldig. Der Starter merkt sich, wie du ihn fütterst.",
+      "Die Kruste verrät dir, wie der Dampf im Ofen war: Glanz = guter Dampf, matt = zu trocken.",
+      "Wenn der Teig kühl und langsam reift, schmeckt das Brot tiefer. Eile macht Brot bitter.",
       "Schwimmt der Starter, ist es Zeit. Schwimmt er nicht, gib ihm noch eine Stunde &mdash; und mach dir Tee.",
       "Vollkorn saugt nach. Mische, warte 5 Minuten, beurteile dann erst die Hydration.",
-      "Salz nicht direkt auf den Starter &mdash; immer ueber das Wasser einarbeiten.",
+      "Salz nicht direkt auf den Starter &mdash; immer über das Wasser einarbeiten.",
       "Brot ist nicht fertig, wenn die Uhr piept, sondern wenn die Kerntemperatur 95 °C erreicht."
     ];
     document.getElementById('tipOfDay').innerHTML = TIPS[new Date().getDate() % TIPS.length];
@@ -4639,7 +4650,7 @@ function buildCard(key, content, isWarn) {
       brotbackplaner: "Brotbackplaner",
       hydration: "Hydrations-Rechner",
       inclusions: "Inclusions-Planer",
-      stueckgare: "Stueckgare-Rechner",
+      stueckgare: "Stückgare-Rechner",
       fehlerfinder: "Fehlerfinder"
     };
 
@@ -4701,8 +4712,8 @@ function buildCard(key, content, isWarn) {
 
     // ---------- Cache-Auto-Reset ----------
     // Alten Service Worker entfernen und Caches leeren, damit alle immer die
-    // neueste Version sehen. Die service-worker.js (Selbstzerstoerung) dislodged
-    // hartnaeckige alte Worker; hier wird NICHT neu registriert.
+    // neueste Version sehen. Die service-worker.js (Selbstzerstörung) dislodged
+    // hartnäckige alte Worker; hier wird NICHT neu registriert.
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations()
         .then(regs => regs.forEach(r => r.unregister()))
@@ -4719,11 +4730,11 @@ function buildCard(key, content, isWarn) {
     // ==================================================================
     // Diesen Code verschickst du per E-Mail an deine Kundinnen.
     // Du kannst mehrere Codes parallel nutzen (mit Komma getrennt),
-    // z.B. fuer unterschiedliche Newsletter oder Aktionen.
-    // Gross-/Kleinschreibung egal. Leerzeichen werden ignoriert.
+    // z.B. für unterschiedliche Newsletter oder Aktionen.
+    // Groß-/Kleinschreibung egal. Leerzeichen werden ignoriert.
     //
     const ACTIVATION_CODES = [
-      "Fruehling-2026",         // <-- Hier deinen Code eintragen
+      "Frühling-2026",         // <-- Hier deinen Code eintragen
       // "WEITERER-CODE",       // <-- weitere mit Komma trennen
     ];
     // ==================================================================
@@ -4745,7 +4756,7 @@ function buildCard(key, content, isWarn) {
     const resetBtn = document.getElementById('resetBtn');
 
     let authMode = 'login'; // 'login' | 'register'
-    let recoveryActive = false; // true, sobald jemand ueber den Passwort-Reset-Link kommt
+    let recoveryActive = false; // true, sobald jemand über den Passwort-Reset-Link kommt
 
     function showMsg(text, kind) {
       authMsg.className = 'auth-msg show' + (kind ? ' ' + kind : '');
@@ -4765,14 +4776,14 @@ function buildCard(key, content, isWarn) {
         codeField.style.display = '';
         submitBtn.textContent = 'Konto erstellen';
         resetBtn.style.display = 'none';
-        authHeadline.innerHTML = 'Schoen, dass du <em>da bist.</em>';
+        authHeadline.innerHTML = 'Schön, dass du <em>da bist.</em>';
         authSubtitle.textContent = 'Erstelle dein Konto mit deinem Aktivierungs-Code, um die Brot-Werkstatt zu nutzen.';
       } else {
         codeField.style.display = 'none';
         submitBtn.textContent = 'Anmelden';
         resetBtn.style.display = '';
-        authHeadline.innerHTML = 'Willkommen <em>zurueck.</em>';
-        authSubtitle.textContent = 'Schoen, dass du wieder da bist. Melde dich an, um auf deine Brot-Werkstatt zuzugreifen.';
+        authHeadline.innerHTML = 'Willkommen <em>zurück.</em>';
+        authSubtitle.textContent = 'Schön, dass du wieder da bist. Melde dich an, um auf deine Brot-Werkstatt zuzugreifen.';
       }
       clearMsg();
     }
@@ -4799,18 +4810,18 @@ function buildCard(key, content, isWarn) {
       if (error) {
         showMsg(error.message, 'error');
       } else {
-        showMsg('Willkommen zurueck.', 'success');
+        showMsg('Willkommen zurück.', 'success');
         setTimeout(() => { authOverlay.style.display = 'none'; checkUser(); }, 250);
       }
     }
 
     async function doSignup() {
       if (!emailEl.value.trim() || !passwordEl.value) {
-        showMsg('Bitte E-Mail und Passwort ausfuellen.', 'error');
+        showMsg('Bitte E-Mail und Passwort ausfüllen.', 'error');
         return;
       }
       if (!isValidCode(codeEl.value)) {
-        showMsg('Aktivierungs-Code stimmt nicht. Pruefe deine E-Mail oder schreib Felicitas: <a href="mailto:sauermachtkrustig@gmail.com" style="color:inherit;text-decoration:underline;">sauermachtkrustig@gmail.com</a>', 'error');
+        showMsg('Aktivierungs-Code stimmt nicht. Prüfe deine E-Mail oder schreib Felicitas: <a href="mailto:sauermachtkrustig@gmail.com" style="color:inherit;text-decoration:underline;">sauermachtkrustig@gmail.com</a>', 'error');
         codeEl.focus();
         return;
       }
@@ -4908,11 +4919,11 @@ function buildCard(key, content, isWarn) {
       const p1 = newPwEl.value;
       const p2 = newPw2El.value;
       if (!p1 || p1.length < 6) {
-        showRecoveryMsg('Bitte ein Passwort mit mindestens 6 Zeichen waehlen.', 'error');
+        showRecoveryMsg('Bitte ein Passwort mit mindestens 6 Zeichen wählen.', 'error');
         return;
       }
       if (p1 !== p2) {
-        showRecoveryMsg('Die beiden Passwoerter stimmen nicht ueberein.', 'error');
+        showRecoveryMsg('Die beiden Passwörter stimmen nicht überein.', 'error');
         return;
       }
       recoverySubmitBtn.disabled = true;
@@ -4923,7 +4934,7 @@ function buildCard(key, content, isWarn) {
         return;
       }
       showRecoveryMsg('Passwort gespeichert. Du wirst angemeldet ...', 'success');
-      // URL-Anhang entfernen, damit ein Neuladen den Reset nicht erneut ausloest
+      // URL-Anhang entfernen, damit ein Neuladen den Reset nicht erneut auslöst
       try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
       setTimeout(() => {
         recoveryActive = false;
@@ -4942,7 +4953,7 @@ function buildCard(key, content, isWarn) {
       });
     });
 
-    // Reset-Link erkennen: Supabase haengt beim Klick "type=recovery" an die URL
+    // Reset-Link erkennen: Supabase hängt beim Klick "type=recovery" an die URL
     if (window.location.hash && window.location.hash.indexOf('type=recovery') !== -1) {
       recoveryActive = true;
     }
