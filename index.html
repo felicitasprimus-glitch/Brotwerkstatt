@@ -363,6 +363,9 @@
   .calc-res-inline{display:flex;align-items:center;justify-content:space-between;font-size:15px;padding:14px 18px}
   .calc-res-inline b{font-size:16px}
   .calc-hint{color:#8a6f7a;font-size:12.5px;line-height:1.55;margin:14px 4px 0;text-align:center}
+  .calc-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(154,111,130,.25);outline:none}
+  .calc-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#7C3E50;cursor:pointer;box-shadow:0 2px 6px rgba(124,62,80,.4)}
+  .calc-range::-moz-range-thumb{width:24px;height:24px;border:none;border-radius:50%;background:#7C3E50;cursor:pointer}
 </style>
 </head>
 <body class="locked">
@@ -3515,6 +3518,8 @@ renderAll();
           <span class="calc-ratio-x">:</span>
           <div class="calc-ratio-col"><span class="calc-ratio-lb">Wasser</span><input id="fr-w" class="calc-in calc-in-s" type="number" inputmode="decimal" value="5" step="1"></div>
         </div>
+        <label class="calc-lb" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)">Raumtemperatur<span class="calc-inwrap"><input id="fr-temp" class="calc-in" type="number" inputmode="decimal" value="24" step="0.5"><span class="calc-unit">°C</span></span></label>
+        <label class="calc-lb" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)">Raumtemperatur<span class="calc-inwrap"><input id="fr-temp" class="calc-in" type="number" inputmode="decimal" value="24" step="0.5"><span class="calc-unit">°C</span></span></label>
       </div>
       <div class="calc-res calc-res-multi">
         <div class="calc-res-row"><span>Anstellgut</span><b><span id="fr-o-start">20</span> g</b></div>
@@ -3522,6 +3527,9 @@ renderAll();
         <div class="calc-res-row"><span>Wasser</span><b><span id="fr-o-wasser">100</span> g</b></div>
         <div class="calc-res-row calc-res-total"><span>Gesamt</span><b><span id="fr-o-total">220</span> g</b></div>
       </div>
+      <div class="calc-res calc-res-inline" style="margin-top:12px"><span>Peak (geschätzt)</span><b>ca. <span id="fr-peak">6–8</span> Std.</b></div>
+      <div class="calc-res calc-res-inline" style="margin-top:12px;background:linear-gradient(150deg,#B9926A,#9A6F82)"><span>Peak voraussichtlich</span><b>in ca. <span id="fr-peak">6–8</span> Std.</b></div>
+      <p class="calc-hint">Ca. um <span id="fr-peak-clock">…</span> Uhr (ab jetzt). Schätzung nach Verhältnis &amp; Temperatur — der Schwimmtest bleibt der Beweis.</p>
       <p class="calc-hint">Beispiel 1:5:5: auf 1 Teil Anstellgut kommen 5 Teile Mehl und 5 Teile Wasser. Mehr Mehl/Wasser = langsamere, mildere Führung.</p>
     </div>
   </div></div>
@@ -3541,6 +3549,31 @@ renderAll();
         <label class="calc-lb">Mehlmenge im Rezept<span class="calc-inwrap"><input id="he-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
         <div class="calc-res calc-res-inline"><span>Aktives Anstellgut</span><b>ca. <span id="he-ag">100</span> g</b></div>
         <p class="calc-hint" style="margin-top:8px">Faustregel: ca. 20 % der Mehlmenge als aktives Anstellgut (100 % Hydration). Reduziere im Rezept Mehl und Wasser um je die Hälfte des Anstellguts. Plane deutlich mehr Zeit ein.</p>
+      </div>
+      <div class="calc-card" style="margin-top:14px">
+        <div class="calc-section-title">Sauerteig + Hefe kombiniert</div>
+        <label class="calc-lb">Mehlmenge<span class="calc-inwrap"><input id="hk-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
+        <label class="calc-lb">Anteil Sauerteig<span class="calc-inwrap"><input id="hk-share" class="calc-in" type="number" inputmode="decimal" value="50" step="5" min="0" max="100"><span class="calc-unit">%</span></span></label>
+        <div class="calc-res calc-res-multi" style="margin-top:14px">
+          <div class="calc-res-row"><span>Anstellgut (aktiv)</span><b><span id="hk-ag">50</span> g</b></div>
+          <div class="calc-res-row"><span>Frischhefe</span><b><span id="hk-fresh">3.8</span> g</b></div>
+          <div class="calc-res-row"><span>oder Trockenhefe</span><b><span id="hk-dry">1.3</span> g</b></div>
+        </div>
+        <p class="calc-hint" style="margin-top:8px">So bekommst du Sauerteig-Aroma mit der Planbarkeit von Hefe. Mehr Sauerteig-Anteil = mehr Aroma & längere Gehzeit, mehr Hefe = schneller & milder.</p>
+      </div>
+      <div class="calc-card" style="margin-top:14px">
+        <div class="calc-section-title">Sauerteig + Hefe kombiniert</div>
+        <label class="calc-lb">Mehlmenge<span class="calc-inwrap"><input id="hc-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span></label>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(154,111,130,.1)">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#7C3E50;font-weight:600;margin-bottom:8px"><span id="hc-lbl-st">Sauerteig 50%</span><span id="hc-lbl-he">Hefe 50%</span></div>
+          <input id="hc-share" class="calc-range" type="range" min="0" max="100" value="50" step="5">
+        </div>
+        <div class="calc-res calc-res-multi" style="margin-top:14px">
+          <div class="calc-res-row"><span>Aktives Anstellgut</span><b><span id="hc-ag">50</span> g</b></div>
+          <div class="calc-res-row"><span>Frischhefe</span><b><span id="hc-fresh">2</span> g</b></div>
+          <div class="calc-res-row"><span>oder Trockenhefe</span><b><span id="hc-dry">0.7</span> g</b></div>
+        </div>
+        <p class="calc-hint" style="margin-top:10px">Sauerteig bringt Aroma, die Hefe Sicherheit &amp; Planbarkeit. Richtwerte — mehr Hefe = schneller, mehr Sauerteig = mehr Geschmack.</p>
       </div>
     </div>
   </div></div>
@@ -3872,12 +3905,48 @@ renderAll();
     function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
     function r0(x){ return Math.round(x); }
     function calcSW(){ var z=num('sw-ziel'),m=num('sw-mehl'); if(isNaN(z)||isNaN(m))return; var w=2*z-m; if(w<0)w=0; if(w>60)w=60; set('sw-out', Math.round(w*2)/2); }
-    function calcFR(){ var s=num('fr-start'),a=num('fr-a'),m=num('fr-m'),w=num('fr-w'); if(isNaN(s)||isNaN(a)||a<=0)return; var mehl=s*(m/a),wasser=s*(w/a); set('fr-o-start',r0(s)); set('fr-o-mehl',r0(mehl)); set('fr-o-wasser',r0(wasser)); set('fr-o-total',r0(s+mehl+wasser)); }
-    function calcHE(){ var f=num('he-fresh'); if(!isNaN(f)) set('he-dry', Math.round((f/3)*10)/10); var me=num('he-mehl'); if(!isNaN(me)) set('he-ag', r0(me*0.2)); }
+    function calcFR(){ var s=num('fr-start'),a=num('fr-a'),m=num('fr-m'),w=num('fr-w'); if(isNaN(s)||isNaN(a)||a<=0)return; var mehl=s*(m/a),wasser=s*(w/a); set('fr-o-start',r0(s)); set('fr-o-mehl',r0(mehl)); set('fr-o-wasser',r0(wasser)); set('fr-o-total',r0(s+mehl+wasser)); var t=num('fr-temp'); if(!isNaN(t)){ var mp=m/a; var base=2.5+0.85*mp; var factor=Math.pow(2,(24-t)/8); var pk=base*factor; var lo=Math.max(1,Math.round(pk*0.85)); var hi=Math.round(pk*1.15); if(hi<=lo)hi=lo+1; set('fr-peak', lo+'\u2013'+hi); } }
+    function calcHE(){ var f=num('he-fresh'); if(!isNaN(f)) set('he-dry', Math.round((f/3)*10)/10); var me=num('he-mehl'); if(!isNaN(me)) set('he-ag', r0(me*0.2)); var km=num('hk-mehl'),ks=num('hk-share'); if(!isNaN(km)&&!isNaN(ks)){ if(ks<0)ks=0; if(ks>100)ks=100; var ag=0.20*km*(ks/100); var fr=0.015*km*(1-ks/100); set('hk-ag', r0(ag)); set('hk-fresh', Math.round(fr*10)/10); set('hk-dry', Math.round((fr/3)*10)/10); } }
     ['sw-ziel','sw-mehl'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcSW); });
-    ['fr-start','fr-a','fr-m','fr-w'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcFR); });
-    ['he-fresh','he-mehl'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcHE); });
+    ['fr-start','fr-a','fr-m','fr-w','fr-temp'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcFR); });
+    ['he-fresh','he-mehl','hk-mehl','hk-share'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcHE); });
     calcSW(); calcFR(); calcHE();
+  })();
+
+  (function(){
+    function num(id){ var e=document.getElementById(id); return e? parseFloat(e.value) : NaN; }
+    function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+    function pad(n){ return ('0'+n).slice(-2); }
+    function calcPeak(){
+      var a=num('fr-a'), m=num('fr-m'), t=num('fr-temp');
+      if(isNaN(a)||a<=0||isNaN(m)||isNaN(t)) return;
+      var r=m/a;
+      var base=3.5+0.7*r;
+      var factor=Math.pow(2,(24-t)/8);
+      var peak=base*factor;
+      var lo=Math.max(1,Math.round(peak*0.85)), hi=Math.round(peak*1.15);
+      if(hi<=lo) hi=lo+1;
+      set('fr-peak', lo+'–'+hi);
+      try{
+        var now=new Date();
+        var d1=new Date(now.getTime()+lo*3600000), d2=new Date(now.getTime()+hi*3600000);
+        set('fr-peak-clock', pad(d1.getHours())+':'+pad(d1.getMinutes())+'–'+pad(d2.getHours())+':'+pad(d2.getMinutes()));
+      }catch(e){}
+    }
+    function calcCombo(){
+      var flour=num('hc-mehl'), share=num('hc-share');
+      if(isNaN(flour)||isNaN(share)) return;
+      var s=share/100;
+      set('hc-ag', Math.round(0.20*flour*s));
+      var fresh=0.008*flour*(1-s);
+      set('hc-fresh', Math.round(fresh*10)/10);
+      set('hc-dry', Math.round((fresh/3)*10)/10);
+      set('hc-lbl-st', 'Sauerteig '+share+'%');
+      set('hc-lbl-he', 'Hefe '+(100-share)+'%');
+    }
+    ['fr-a','fr-m','fr-temp'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcPeak); });
+    ['hc-mehl','hc-share'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcCombo); });
+    calcPeak(); calcCombo();
   })();
 </script>
 </body>
