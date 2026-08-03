@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -710,7 +711,36 @@
       .tool-card .ic { width: 48px; height: 48px; font-size: 22px; }
       .tool-card .body h3 { font-size: 19px; }
     }
-  </style>
+  
+  .calc-wrap{max-width:520px;margin:0 auto;padding:6px 2px 40px}
+  .calc-intro{text-align:center;margin-bottom:22px}
+  .calc-emoji{font-size:34px;margin-bottom:6px}
+  .calc-h1{font-family:'Playfair Display',Georgia,serif;font-size:27px;color:#5A3F56;margin:0 0 8px;font-weight:700}
+  .calc-sub{color:#8a6f7a;font-size:14.5px;line-height:1.5;margin:0;max-width:360px;margin:0 auto}
+  .calc-card{background:#fff;border:1px solid rgba(154,111,130,.16);border-radius:20px;padding:18px 18px 20px;box-shadow:0 8px 24px -16px rgba(124,62,80,.4)}
+  .calc-section-title{font-family:'Playfair Display',Georgia,serif;font-size:17px;color:#7C3E50;font-weight:600;margin-bottom:12px}
+  .calc-lb{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;color:#4A2F3A;font-weight:500;padding:9px 0}
+  .calc-lb + .calc-lb{border-top:1px solid rgba(154,111,130,.1)}
+  .calc-inwrap{display:inline-flex;align-items:center;gap:6px;background:#FBF6EF;border:1px solid rgba(154,111,130,.22);border-radius:12px;padding:6px 12px}
+  .calc-in{width:70px;border:none;background:transparent;font-size:17px;font-weight:600;color:#5A3F56;text-align:right;font-family:inherit;outline:none}
+  .calc-unit{font-size:13px;color:#9a8290}
+  .calc-in-s{width:100%;text-align:center;background:#FBF6EF;border:1px solid rgba(154,111,130,.22);border-radius:10px;padding:8px 4px}
+  .calc-ratio{display:flex;align-items:flex-end;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,111,130,.1)}
+  .calc-ratio-col{flex:1;display:flex;flex-direction:column;gap:5px;align-items:center}
+  .calc-ratio-lb{font-size:11px;color:#8a6f7a;text-transform:uppercase;letter-spacing:.05em}
+  .calc-ratio-x{font-size:20px;color:#c9a3b3;padding-bottom:8px}
+  .calc-res{margin-top:16px;background:linear-gradient(150deg,#9A6F82,#7C3E50);color:#fff;border-radius:18px;padding:18px 20px;text-align:center}
+  .calc-res-lb{font-size:13px;opacity:.85;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .calc-res-val{font-family:'Playfair Display',Georgia,serif;font-size:34px;font-weight:700}
+  .calc-res-multi{text-align:left;padding:14px 20px}
+  .calc-res-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:15px}
+  .calc-res-row + .calc-res-row{border-top:1px solid rgba(255,255,255,.16)}
+  .calc-res-row b{font-size:17px}
+  .calc-res-total{margin-top:2px;font-weight:700}
+  .calc-res-inline{display:flex;align-items:center;justify-content:space-between;font-size:15px;padding:14px 18px}
+  .calc-res-inline b{font-size:17px}
+  .calc-hint{color:#8a6f7a;font-size:12.5px;line-height:1.55;margin:14px 4px 0;text-align:center}
+</style>
 
   <style id="bw-theme-concept">
   /* ===========================================================
@@ -1106,6 +1136,13 @@
         <div class="more-row">
           <button class="more-card" data-tool="hydration" type="button"><span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z"/></svg></span>Hydration</button>
           <button class="more-card" data-tool="inclusions" type="button"><span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.2"/><circle cx="16" cy="7.5" r="2.2"/><circle cx="12" cy="15" r="2.2"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></span>Inclusions</button>
+        </div>
+        <div class="more-row">
+          <button class="more-card" data-tool="schuettwasser" type="button"><span class="mic">🌡️</span>Schüttwasser</button>
+          <button class="more-card" data-tool="feedratio" type="button"><span class="mic">🥣</span>Feed-Ratio</button>
+        </div>
+        <div class="more-row">
+          <button class="more-card" data-tool="hefeumrechner" type="button"><span class="mic">🔄</span>Hefe &harr; Sauerteig</button>
         </div>
 
         <div class="home-footer">
@@ -4022,6 +4059,94 @@ function buildCard(key, content, isWarn) {
           <input id="ffSearch" type="search" placeholder="Symptom suchen &mdash; z.B. ‚dichte Krume'" aria-label="Symptom suchen" />
         </div>
         <div class="ff-symptoms" id="ffList"></div>
+
+      </section>
+
+      <!-- ===== SCHUETTWASSER-RECHNER ===== -->
+      <section class="view" id="view-schuettwasser" aria-label="Schuettwasser-Rechner">
+        <div class="calc-wrap">
+          <div class="calc-intro">
+            <div class="calc-emoji">🌡️</div>
+            <h1 class="calc-h1">Schüttwasser-Rechner</h1>
+            <p class="calc-sub">Welche Wassertemperatur brauchst du, damit dein Teig die Zieltemperatur trifft?</p>
+          </div>
+          <div class="calc-card">
+            <label class="calc-lb">Zielteig-Temperatur
+              <span class="calc-inwrap"><input id="sw-ziel" class="calc-in" type="number" inputmode="decimal" value="26" step="0.5"><span class="calc-unit">°C</span></span>
+            </label>
+            <label class="calc-lb">Mehltemperatur
+              <span class="calc-inwrap"><input id="sw-mehl" class="calc-in" type="number" inputmode="decimal" value="20" step="0.5"><span class="calc-unit">°C</span></span>
+            </label>
+          </div>
+          <div class="calc-res">
+            <div class="calc-res-lb">Deine Wassertemperatur</div>
+            <div class="calc-res-val"><span id="sw-out">32</span> °C</div>
+          </div>
+          <p class="calc-hint">Faustformel: 2 × Zielteig-Temperatur − Mehltemperatur. Ist deine Küche sehr warm, nimm lieber etwas kälteres Wasser.</p>
+        </div>
+      </section>
+
+      <!-- ===== FEED-RATIO-RECHNER ===== -->
+      <section class="view" id="view-feedratio" aria-label="Feed-Ratio-Rechner">
+        <div class="calc-wrap">
+          <div class="calc-intro">
+            <div class="calc-emoji">🥣</div>
+            <h1 class="calc-h1">Feed-Ratio-Rechner</h1>
+            <p class="calc-sub">Berechne deine Fütterungsmengen aus einem Verhältnis (z.B. 1:5:5).</p>
+          </div>
+          <div class="calc-card">
+            <label class="calc-lb">Anstellgut-Menge
+              <span class="calc-inwrap"><input id="fr-start" class="calc-in" type="number" inputmode="decimal" value="20" step="1"><span class="calc-unit">g</span></span>
+            </label>
+            <div class="calc-ratio">
+              <div class="calc-ratio-col"><span class="calc-ratio-lb">Anstellgut</span><input id="fr-a" class="calc-in calc-in-s" type="number" inputmode="decimal" value="1" step="1"></div>
+              <span class="calc-ratio-x">:</span>
+              <div class="calc-ratio-col"><span class="calc-ratio-lb">Mehl</span><input id="fr-m" class="calc-in calc-in-s" type="number" inputmode="decimal" value="5" step="1"></div>
+              <span class="calc-ratio-x">:</span>
+              <div class="calc-ratio-col"><span class="calc-ratio-lb">Wasser</span><input id="fr-w" class="calc-in calc-in-s" type="number" inputmode="decimal" value="5" step="1"></div>
+            </div>
+          </div>
+          <div class="calc-res calc-res-multi">
+            <div class="calc-res-row"><span>Anstellgut</span><b><span id="fr-o-start">20</span> g</b></div>
+            <div class="calc-res-row"><span>Mehl</span><b><span id="fr-o-mehl">100</span> g</b></div>
+            <div class="calc-res-row"><span>Wasser</span><b><span id="fr-o-wasser">100</span> g</b></div>
+            <div class="calc-res-row calc-res-total"><span>Gesamt</span><b><span id="fr-o-total">220</span> g</b></div>
+          </div>
+          <p class="calc-hint">Beispiel 1:5:5 bedeutet: auf 1 Teil Anstellgut kommen 5 Teile Mehl und 5 Teile Wasser. Mehr Mehl/Wasser = langsamere, mildere Führung.</p>
+        </div>
+      </section>
+
+      <!-- ===== HEFE <-> SAUERTEIG-UMRECHNER ===== -->
+      <section class="view" id="view-hefeumrechner" aria-label="Hefe Sauerteig Umrechner">
+        <div class="calc-wrap">
+          <div class="calc-intro">
+            <div class="calc-emoji">🔄</div>
+            <h1 class="calc-h1">Hefe &harr; Sauerteig</h1>
+            <p class="calc-sub">Zwischen Triebmitteln umrechnen &mdash; als Orientierung.</p>
+          </div>
+
+          <div class="calc-card">
+            <div class="calc-section-title">Frischhefe &harr; Trockenhefe</div>
+            <label class="calc-lb">Frischhefe
+              <span class="calc-inwrap"><input id="he-fresh" class="calc-in" type="number" inputmode="decimal" value="21" step="1"><span class="calc-unit">g</span></span>
+            </label>
+            <div class="calc-res calc-res-inline">
+              <span>entspricht</span><b><span id="he-dry">7</span> g Trockenhefe</b>
+            </div>
+            <p class="calc-hint" style="margin-top:8px">Regel: Trockenhefe = Frischhefe ÷ 3. Umgekehrt × 3.</p>
+          </div>
+
+          <div class="calc-card" style="margin-top:14px">
+            <div class="calc-section-title">Rezept auf Sauerteig umstellen</div>
+            <label class="calc-lb">Mehlmenge im Rezept
+              <span class="calc-inwrap"><input id="he-mehl" class="calc-in" type="number" inputmode="decimal" value="500" step="10"><span class="calc-unit">g</span></span>
+            </label>
+            <div class="calc-res calc-res-inline">
+              <span>Aktives Anstellgut</span><b>ca. <span id="he-ag">100</span> g</b>
+            </div>
+            <p class="calc-hint" style="margin-top:8px">Faustregel: ca. 20 % der Mehlmenge als aktives Anstellgut (100 % Hydration). Reduziere im Rezept Mehl und Wasser um je die Hälfte des Anstellguts. Plane deutlich mehr Zeit ein (Sauerteig geht langsamer als Hefe).</p>
+          </div>
+        </div>
       </section>
 
     </main>
@@ -4287,7 +4412,10 @@ function buildCard(key, content, isWarn) {
       hydration: "Hydrations-Rechner",
       inclusions: "Inclusions-Planer",
       stueckgare: "Stückgare-Rechner",
-      fehlerfinder: "Fehlerfinder"
+      fehlerfinder: "Fehlerfinder",
+      schuettwasser: "Schuettwasser-Rechner",
+      feedratio: "Feed-Ratio-Rechner",
+      hefeumrechner: "Hefe & Sauerteig"
     };
 
     function setView(name) {
@@ -4599,6 +4727,37 @@ function buildCard(key, content, isWarn) {
     if (recoveryActive) showRecoveryView();
 
     checkUser();
+  
+    // ===== Zusatz-Rechner (Vanilla) =====
+    (function(){
+      function num(id){ var e=document.getElementById(id); return e? parseFloat(e.value) : NaN; }
+      function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+      function r0(x){ return Math.round(x); }
+      // Schuettwasser
+      function calcSW(){
+        var ziel=num('sw-ziel'), mehl=num('sw-mehl');
+        if(isNaN(ziel)||isNaN(mehl)){ return; }
+        var w=2*ziel-mehl;
+        if(w<0)w=0; if(w>60)w=60;
+        set('sw-out', (Math.round(w*2)/2));
+      }
+      ['sw-ziel','sw-mehl'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcSW); });
+      // Feed-Ratio
+      function calcFR(){
+        var s=num('fr-start'), a=num('fr-a'), m=num('fr-m'), w=num('fr-w');
+        if(isNaN(s)||isNaN(a)||a<=0){ return; }
+        var mehl=s*(m/a), wasser=s*(w/a), total=s+mehl+wasser;
+        set('fr-o-start', r0(s)); set('fr-o-mehl', r0(mehl)); set('fr-o-wasser', r0(wasser)); set('fr-o-total', r0(total));
+      }
+      ['fr-start','fr-a','fr-m','fr-w'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcFR); });
+      // Hefe <-> Sauerteig
+      function calcHE(){
+        var fresh=num('he-fresh'); if(!isNaN(fresh)) set('he-dry', (Math.round((fresh/3)*10)/10));
+        var mehl=num('he-mehl'); if(!isNaN(mehl)) set('he-ag', r0(mehl*0.2));
+      }
+      ['he-fresh','he-mehl'].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener('input',calcHE); });
+      calcSW(); calcFR(); calcHE();
+    })();
   </script>
 
 </body>
