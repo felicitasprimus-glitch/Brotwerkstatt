@@ -742,6 +742,20 @@
   .calc-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(154,111,130,.25);outline:none}
   .calc-range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#7C3E50;cursor:pointer;box-shadow:0 2px 6px rgba(124,62,80,.4)}
   .calc-range::-moz-range-thumb{width:24px;height:24px;border:none;border-radius:50%;background:#7C3E50;cursor:pointer}
+
+  .smk-ab{margin:2px 0 4px}
+  .smk-ab-card{width:100%;text-align:left;cursor:pointer;background:linear-gradient(150deg,#A04A60,#863E52);color:#fff;border:none;border-radius:22px;padding:16px 18px;box-shadow:0 14px 30px -16px rgba(134,62,82,.6)}
+  .smk-ab-top{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .smk-ab-dot{width:9px;height:9px;border-radius:50%;background:#8FD19E;box-shadow:0 0 0 0 rgba(143,209,158,.7);animation:smkPulse 1.8s infinite}
+  @keyframes smkPulse{0%{box-shadow:0 0 0 0 rgba(143,209,158,.6)}70%{box-shadow:0 0 0 8px rgba(143,209,158,0)}100%{box-shadow:0 0 0 0 rgba(143,209,158,0)}}
+  .smk-ab-name{flex:1;font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600}
+  .smk-ab-x{background:rgba(255,255,255,.18);border:none;color:#fff;font-family:inherit;font-size:12px;padding:5px 11px;border-radius:999px;cursor:pointer}
+  .smk-ab-now{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);border-radius:14px;padding:11px 13px}
+  .smk-ab-ic{font-size:22px}
+  .smk-ab-now small{display:block;font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+  .smk-ab-now b{font-size:16px}
+  .smk-ab-next{display:flex;justify-content:space-between;align-items:center;margin-top:9px;font-size:13.5px;opacity:.92}
+  .smk-ab-next b{font-size:14px}
 </style>
 
   <style id="bw-theme-concept">
@@ -1108,6 +1122,7 @@
           </div>
         </div>
 
+        <div id="smkActiveBake" class="smk-ab" style="display:none"></div>
         <div class="qa-grid">
           <button class="qa qa-primary" data-tool="brotbackplaner" type="button">
             <div class="qa-top"><span class="qa-title">Teig planen</span><span class="qa-arrow">&raquo;</span></div>
@@ -2198,6 +2213,13 @@ function renderTimeline(r){
   ensureTimers(r.steps);
   const eat=r.steps.find(s=&gt;s.id==='eat');
   $('pSub').innerHTML=eat?('Dein Brot ist fertig am &lt;b&gt;'+dShort(eat.time)+'&lt;/b&gt; um &lt;b&gt;'+clk(eat.time)+'&lt;/b&gt;.'):'';
+  window.smkStartBake=function(){ if(!window.__smkPlan){return;} try{localStorage.setItem('smk-active-bake',JSON.stringify({name:window.__smkPlan.name,started:Date.now(),steps:window.__smkPlan.steps}));}catch(e){} smkSyncStartBtn(); };
+  window.smkStopBake=function(){ try{localStorage.removeItem('smk-active-bake');}catch(e){} smkSyncStartBtn(); };
+  window.smkToggleBake=function(){ var a=false; try{a=!!localStorage.getItem('smk-active-bake');}catch(e){} if(a){smkStopBake();}else{smkStartBake();} };
+  window.smkSyncStartBtn=function(){ var b=document.getElementById('smkStartBtn'); if(!b){return;} var a=false; try{a=!!localStorage.getItem('smk-active-bake');}catch(e){} if(a){ b.textContent='✓ Backvorgang laeuft – auf der Startseite'; b.style.background='#4A7C59'; } else { b.textContent='Diesen Backvorgang starten'; b.style.background='linear-gradient(135deg,#A04A60,#863E52)'; } };
+  window.__smkPlan={name:(typeof FLOUR!=='undefined'&amp;&amp;FLOUR[state.flourKey]?FLOUR[state.flourKey].label:(state.flourKey==='Mischbrot'?'Mischbrot':'Backvorgang')),steps:r.steps.map(function(s){return {id:s.id,icon:(s.icon||''),title:(s.title||''),time:(s.time?s.time.getTime():null)};})};
+  if(!document.getElementById('smkStartBtn')){ var _pb=document.getElementById('pSub'); if(_pb){ _pb.insertAdjacentHTML('afterend','&lt;button id=&quot;smkStartBtn&quot; type=&quot;button&quot; onclick=&quot;smkToggleBake()&quot; style=&quot;width:100%;margin:14px 0 4px;padding:14px;border:none;border-radius:16px;color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;background:linear-gradient(135deg,#A04A60,#863E52);&quot;&gt;Diesen Backvorgang starten&lt;/button&gt;'); } }
+  try{smkSyncStartBtn();}catch(e){}
   $('timeline').innerHTML=r.steps.map(s=&gt;{
     const tips=(s.tips||[]).filter(Boolean).map(t=&gt;'&lt;li&gt;'+lillyText(t)+'&lt;/li&gt;').join('');
     const dur=s.duration?(' · '+s.duration):'';
@@ -4456,6 +4478,30 @@ function buildCard(key, content, isWarn) {
       hefeumrechner: "Hefe & Sauerteig"
     };
 
+
+    function smkEsc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function smkClearActive(e){ if(e&&e.stopPropagation){e.stopPropagation();} try{localStorage.removeItem('smk-active-bake');}catch(x){} smkRenderActiveBake(); }
+    function smkRenderActiveBake(){
+      var el=document.getElementById('smkActiveBake'); if(!el){return;}
+      var raw=null; try{raw=localStorage.getItem('smk-active-bake');}catch(e){}
+      if(!raw){ el.style.display='none'; el.innerHTML=''; return; }
+      var data; try{data=JSON.parse(raw);}catch(e){ el.style.display='none'; return; }
+      var steps=(data.steps||[]).filter(function(s){return s.time;});
+      if(!steps.length){ el.style.display='none'; return; }
+      steps.sort(function(a,b){return a.time-b.time;});
+      var now=Date.now(), cur=null, next=null;
+      for(var i=0;i<steps.length;i++){ if(steps[i].time<=now){ cur=steps[i]; } else { next=steps[i]; break; } }
+      var done = steps[steps.length-1].time<=now;
+      var html='<div class="smk-ab-top"><span class="smk-ab-dot"></span><span class="smk-ab-name">'+smkEsc(data.name||'Backvorgang')+'</span><button class="smk-ab-x" type="button" onclick="smkClearActive(event)">Fertig</button></div>';
+      var head = cur || next;
+      var headLabel = cur ? 'Jetzt' : 'Startet gleich';
+      if(head){ html+='<div class="smk-ab-now"><span class="smk-ab-ic">'+(head.icon||'\uD83C\uDF5E')+'</span><div><small>'+headLabel+'</small><b>'+smkEsc(head.title)+'</b></div></div>'; }
+      if(next){ var mins=Math.round((next.time-now)/60000); var when= mins<=0?'jetzt':(mins<60?('in '+mins+' Min'):('in '+Math.floor(mins/60)+' Std '+(mins%60)+' Min')); html+='<div class="smk-ab-next"><span>Naechster: '+smkEsc(next.title)+'</span><b>'+when+'</b></div>'; }
+      else if(done){ html+='<div class="smk-ab-next"><span>Alle Schritte erledigt</span><b>\uD83C\uDF89</b></div>'; }
+      el.innerHTML='<div class="smk-ab-card" onclick="setView(\'brotbackplaner\')">'+html+'</div>';
+      el.style.display='block';
+    }
+    try{ smkRenderActiveBake(); setInterval(smkRenderActiveBake, 60000); }catch(e){}
     function setView(name) {
       // Toggle view sections
       document.querySelectorAll('.view').forEach(v => {
@@ -4472,6 +4518,7 @@ function buildCard(key, content, isWarn) {
       // Persist & scroll
       try { localStorage.setItem('smk-active-view', name); } catch (e) {}
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if(name==='home'){ try{ smkRenderActiveBake(); }catch(e){} }
     }
 
     // Top-bar scroll subtle border
